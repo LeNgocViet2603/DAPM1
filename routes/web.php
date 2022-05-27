@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\adminController;
+use App\Http\Controllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,5 +13,29 @@ use App\Http\Controllers\adminController;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\adminController@showDashboard');
-Route::get('/admin', 'App\Http\Controllers\adminController@showDashboard');
+// Route::get('/', 'App\Http\Controllers\adminController@showDashboard');
+// Route::get('/admin', 'App\Http\Controllers\adminController@showDashboard');
+
+// begin user routes
+Route::prefix('')->group(function () {
+    Route::get('/', [
+        'as' => 'index',
+        'uses' => 'HomeController@index'
+    ]);
+});
+// end user routes
+
+// begin admin routes
+Route::prefix('admin-page')->group(function () {
+    Route::get('/', [
+        'as' => 'admin.index',
+        'uses' => 'adminController@index'
+    ]);
+
+    // Route::get('/dashboard', [
+    //     'as' => 'admin.dashboard',
+    //     'uses' => 'adminController@ShowDashboard'
+    // ]);
+
+});
+// end admin routes
