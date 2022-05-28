@@ -221,7 +221,7 @@
                   <ul class="contacts-list">
                     <li>
                       <a href="#">
-                        <img class="contacts-list-img" src="{{asset('public/backend/img/user1-128x128.jpg')}}" alt="User Avatar">
+                        <img class="contacts-list-img" src="{{asset('admin/img/user1-128x128.jpg')}}" alt="User Avatar">
 
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
@@ -236,7 +236,7 @@
                     <!-- End Contact Item -->
                     <li>
                       <a href="#">
-                        <img class="contacts-list-img" src="{{asset('public/backend/img/user7-128x128.jpg')}}" alt="User Avatar">
+                        <img class="contacts-list-img" src="{{asset('admin/img/user7-128x128.jpg')}}" alt="User Avatar">
 
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
@@ -251,7 +251,7 @@
                     <!-- End Contact Item -->
                     <li>
                       <a href="#">
-                        <img class="contacts-list-img" src="{{asset('public/backend/img/user3-128x128.jpg')}}" alt="User Avatar">
+                        <img class="contacts-list-img" src="{{asset('admin/img/user3-128x128.jpg')}}" alt="User Avatar">
 
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
@@ -266,7 +266,7 @@
                     <!-- End Contact Item -->
                     <li>
                       <a href="#">
-                        <img class="contacts-list-img" src="{{asset('public/backend/img/user5-128x128.jpg')}}" alt="User Avatar">
+                        <img class="contacts-list-img" src="{{asset('admin/img/user5-128x128.jpg')}}" alt="User Avatar">
 
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
@@ -281,7 +281,7 @@
                     <!-- End Contact Item -->
                     <li>
                       <a href="#">
-                        <img class="contacts-list-img" src="{{asset('public/backend/img/user6-128x128.jpg')}}" alt="User Avatar">
+                        <img class="contacts-list-img" src="{{asset('admin/img/user6-128x128.jpg')}}" alt="User Avatar">
 
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
@@ -296,7 +296,7 @@
                     <!-- End Contact Item -->
                     <li>
                       <a href="#">
-                        <img class="contacts-list-img" src="{{asset('public/backend/img/user8-128x128.jpg')}}" alt="User Avatar">
+                        <img class="contacts-list-img" src="{{asset('admin/img/user8-128x128.jpg')}}" alt="User Avatar">
 
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
