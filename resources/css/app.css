@@ -1,0 +1,68 @@
+.result-col-active {
+    color: red;
+}
+.block-head {
+    padding: 2rem 0;
+}
+.info-sup {
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 3px;
+}
+.info-sup__list {
+}
+
+.info-sup__list-item {
+    margin-bottom: 10px;
+}
+.info-sup__list-item p,
+.info-sup__list-item span.title {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 0px;
+    padding-right: 12px;
+}
+
+/* page provider */
+.provider-form__item {
+}
+
+.provider-form__item input,
+.provider-form__item select {
+    outline: none;
+    border: 1px solid #d8d8d8;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Box modal dialog */
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+.box-time-licence {
+    padding: 12px 10px;
+    border-radius: 5px;
+    border: 1px solid #d8d8d8;
+}

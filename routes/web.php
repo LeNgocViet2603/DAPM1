@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\manageLicenseController;
+use App\Http\Controllers\providerLicenseController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,3 +17,5 @@ use App\Http\Controllers\adminController;
 
 Route::get('/', 'App\Http\Controllers\adminController@showDashboard');
 Route::get('/admin', 'App\Http\Controllers\adminController@showDashboard');
+Route::get('/manage-license', 'App\Http\Controllers\manageLicenseController@showPageManageLicense');
+Route::get('/provider-license', 'App\Http\Controllers\providerLicenseController@showPageProviderLicense');
