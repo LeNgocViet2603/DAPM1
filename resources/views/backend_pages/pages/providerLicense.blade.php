@@ -55,112 +55,26 @@
                   </tr>
                </thead>
                <tbody>
+                  @foreach ($postlist as $key => $item)
                   <tr>
-                     <th scope="row">1</th>
-                     <td>Địa Điểm Kinh Doanh Phúc Long ĐNG 63 - KS - Chi nhánh Đà Nẵng - Công ty Cổ phần
-                        Phúc Long
-                        Heritage</td>
-                     <td>132/2022/ATTP-CNĐK</td>
-                     <td>Lô 38, 39, B1.17, KĐT Sinh thái ven sông Hòa Xuân</td>
+                     <th scope="row">{{$key + 1}}</th>
+                     <td>{{$item->tenCSKD}}</td>
+                     <td>{{$item->maCSKD}}</td>
+                     <td>{{$item->diaChi}}</td>
                      <td>
-                        Công nghiệp
+                        {{$item->linhvuc->tenLoaiCSKD}}
                      </td>
-                     <td><button type="button" class="btn btn-link">Xem chi tiết</button></td>
-                  </tr>
-                  <tr>
-                     <th scope="row">2</th>
-                     <td>Địa Điểm Kinh Doanh Phúc Long ĐNG 63 - KS - Chi nhánh Đà Nẵng - Công ty Cổ phần
-                        Phúc Long
-                        Heritage</td>
-                     <td>132/2022/ATTP-CNĐK</td>
-                     <td>Lô 38, 39, B1.17, KĐT Sinh thái ven sông Hòa Xuân</td>
                      <td>
-                        Công nghiệp
+                        <button type="button" class="btn btn-link" id="btn-detail" data-id="{{ $item->maCSKD}}">Xem chi
+                           tiết </button>
                      </td>
-                     <td><button type="button" class="btn btn-link">Xem chi tiết</button></td>
-
                   </tr>
-                  <tr>
-                     <th scope="row">3</th>
-                     <td>Địa Điểm Kinh Doanh Phúc Long ĐNG 63 - KS - Chi nhánh Đà Nẵng - Công ty Cổ phần
-                        Phúc Long
-                        Heritage</td>
-                     <td>132/2022/ATTP-CNĐK</td>
-                     <td>Lô 38, 39, B1.17, KĐT Sinh thái ven sông Hòa Xuân</td>
-                     <td>
-                        Công nghiệp
-                     </td>
-                     <td><button type="button" class="btn btn-link">Xem chi tiết</button></td>
-
-                  </tr>
+                  @endforeach
                </tbody>
             </table>
          </div>
       </div>
-
-      <button id="myBtn">Open Modal</button>
-      <div id="myModal" class="modal">
-         <!-- Modal content -->
-         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 style="text-align: center">Thông tin cơ sở kinh doanh</h2>
-            <ul class="info-sup__list pt-2">
-               <li class="info-sup__list-item">
-                  <span>
-                     <span class="title">Mã cơ sở: </span>
-                     <span>CSKDCN01</span>
-                  </span>
-               </li>
-               <li class="info-sup__list-item">
-                  <span>
-                     <span class="title">Tên chủ cơ sở: </span>
-                     <span>Nguyễn Quang Huy</span>
-                  </span>
-
-               </li>
-               <li class="info-sup__list-item">
-                  <span>
-                     <span class="title">Tên cơ sở: </span>
-                     <span>Địa Điểm Kinh Doanh Phúc Long ĐNG 63 - KS - Chi nhánh Đà Nẵng - Công ty Cổ phần Phúc Long
-                        Heritage</span>
-                  </span>
-               </li>
-               <li class="info-sup__list-item">
-                  <span>
-                     <span class="title">Địa chỉ: </span>
-                     <span>Lô 38, 39, B1.17, KĐT Sinh thái ven sông Hòa Xuân</span>
-                  </span>
-               </li>
-
-               <li class="info-sup__list-item">
-                  <span>
-                     <span class="title">Dịch vụ kinh doanh: </sơam>
-                        <span>Công nghiệp</span>
-                     </span>
-               </li>
-               <li class="info-sup__list-item">
-                  <div class="box-time-licence">
-                     <div>
-                        Từ ngày:
-                        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01"
-                           max="2018-12-31">
-                     </div>
-                     <div>
-                        Từ ngày:
-                        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01"
-                           max="2018-12-31">
-                     </div>
-                  </div>
-               </li>
-               <i>*Chứng nhập đạt yêu cầu vệ sinh an toàn thực phẩm</i>
-               <div class="pt-4">
-                  <button type="button" class="btn btn-primary">Cấp giấy chứng nhận
-                  </button>
-                  <button type="button" class="btn btn-danger">Đóng</button>
-               </div>
-            </ul>
-         </div>
-      </div>
+      @include('backend_pages/pages/components/modal')
    </section>
    <!-- /.content -->
 </div>

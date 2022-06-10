@@ -68,6 +68,9 @@
       <aside class="control-sidebar control-sidebar-dark">
          <!-- Control sidebar content goes here -->
       </aside>
+      <script>
+      var store = <?php echo json_encode(route('cosokinhdoanh.store')) ?>;
+      </script>
       <!-- /.control-sidebar -->
    </div>
    <!-- ./wrapper -->
@@ -108,6 +111,13 @@
    <script src="{{asset('public/backend/js/app.js')}}"></script>
    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
    <script src="{{asset('public/backend/js/pages/dashboard.js')}}"></script>
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+   <script src="{{asset('public/backend/js/ajax.js')}}"></script>
+
 </body>
 
 </html>
