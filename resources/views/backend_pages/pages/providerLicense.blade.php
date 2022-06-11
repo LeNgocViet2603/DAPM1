@@ -52,6 +52,7 @@
                      <th scope="col">Địa chỉ</th>
                      <th scope="col">Lĩnh vực</th>
                      <th scope="col">Hành động</th>
+                     <th scope="col">Trạng thái</th>
                   </tr>
                </thead>
                <tbody>
@@ -62,11 +63,19 @@
                      <td>{{$item->maCSKD}}</td>
                      <td>{{$item->diaChi}}</td>
                      <td>
-                        {{$item->linhvuc->tenLoaiCSKD}}
+                        {{$item->tenLoaiCSKD}}
                      </td>
                      <td>
                         <button type="button" class="btn btn-link" id="btn-detail" data-id="{{ $item->maCSKD}}">Xem chi
                            tiết </button>
+                     </td>
+                     <td>
+                        @if($item->trangThaiGP === 1)
+                        <p class="btn btn-success" style="cursor: default;">Đã cấp</p>
+                        @else
+
+                        <p class="btn btn-danger" style="cursor: default;">Chờ đợi</p>
+                        @endif
                      </td>
                   </tr>
                   @endforeach

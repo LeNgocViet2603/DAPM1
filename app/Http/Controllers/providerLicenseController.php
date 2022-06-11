@@ -11,18 +11,22 @@ class providerLicenseController extends Controller
 {
     public function showPageProviderLicense()
     {
-        $postlist = Cosokinhdoanh::orderBy('maCSKD', 'DESC')->get();
+        $postlist = Cosokinhdoanh::join('giayphepattp','cosokinhdoanh.maCSKD','=', 'giayphepattp.maCSKD')
+        ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD' )
+        ->get(['cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'cosokinhdoanh.maCSKD','loaicskd.tenLoaiCSKD',
+         'giayphepattp.trangThaiGP']);
         return view('backend_pages/pages/providerLicense')->with(compact('postlist'));
     }
     public function Store(Request $request)
   {
-    Cosokinhdoanh::updateOrCreate(
+    echo $request;
+    GiayPhepAttp::updateOrCreate(
       [
-        'id' => $request->id
+        'maGiayPhepATTP' => $request->maGiayPhepATTP 
       ],
       [
-        'name' => $request->name,
-        'address' => $request->address
+        'thoiHan' => $request->thoiHan,
+        'trangThaiGP' => $request->trangThaiGP
       ]
     );
 
@@ -43,7 +47,9 @@ class providerLicenseController extends Controller
         'data' => $coso,
         'giayphep' => [
             'ngayCap' => $giayphep->ngayCap,
-            'thoiHan' => $giayphep->thoiHan
+            'thoiHan' => $giayphep->thoiHan,
+            'maGiayPhepATTP'=> $giayphep->maGiayPhepATTP,
+            'trangThaiGP' => $giayphep->trangThaiGP,
         ],
         'info'=> [
             'name' =>  $name,

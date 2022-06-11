@@ -10,6 +10,7 @@
          <div class="modal-body">
             <form id="companydata">
 
+               <input type="hidden" id="maGiayPhepATTP" value="">
                <ul class="info-sup__list pt-2">
                   <li class="info-sup__list-item">
                      <span>
@@ -45,20 +46,22 @@
                   </li>
                   <li class="info-sup__list-item">
                      <div class="box-time-licence">
-                        <div>
+                        <div class="box-time-item">
                            Từ ngày:
-                           <input type="date" id="time-start" name="trip-start" value="">
+                           <input type="date" id="time-start" name="trip-start" value="" required>
                         </div>
                         <div>
                            Từ ngày:
-                           <input type="date" id="time-end" name="trip-end" value="">
+                           <input type="date" id="time-end" name="trip-end" value="" required>
+                           <i id="validation-date"></i>
                         </div>
                      </div>
                   </li>
                   <i>*Chứng nhập đạt yêu cầu vệ sinh an toàn thực phẩm</i>
                   <div class="pt-4">
-                     <button type="button" class="btn btn-primary">Cấp giấy chứng nhận
-                     </button>
+                     <input type="submit" data-button="" class="btn btn-primary" id="submit"
+                        value="Cấp giấy chứng nhận">
+
                      <button type="button" class="btn btn-danger">Đóng</button>
                   </div>
                </ul>

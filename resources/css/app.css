@@ -15,7 +15,7 @@
 .info-sup__list-item {
     margin-bottom: 10px;
 }
-.info-sup__list-item p,
+.info-sup__list-item > p,
 .info-sup__list-item span.title {
     font-weight: 600;
     font-size: 18px;
@@ -40,7 +40,13 @@
     border-radius: 5px;
     border: 1px solid #d8d8d8;
 }
-
+.box-time-item {
+    padding-bottom: 12px;
+}
+#validation-date {
+    color: red;
+    display: block;
+}
 .modal-dialog {
     max-width: 600px !important;
 }

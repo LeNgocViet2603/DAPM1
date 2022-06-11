@@ -11,7 +11,7 @@ class GiayPhepAttp extends Model
 
     public $timestamps = false; 
     protected $fillable = [
-        'maGiayPhepATTP ', 'maCSKD ', 'maVanBan', 'ngayCap','thoiHan', 'ngayThuHoi'
+        'maGiayPhepATTP', 'maCSKD ', 'maVanBan', 'ngayCap','thoiHan', 'ngayThuHoi', 'trangThaiGP'
     ];
     protected $primaryKey = 'maCSKD';
     protected $table = 'giayphepattp';
