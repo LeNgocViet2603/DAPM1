@@ -9,13 +9,31 @@ use Illuminate\Http\Request;
 
 class providerLicenseController extends Controller
 {
-    public function showPageProviderLicense()
+    public function showPageProviderLicense(Request $request)
     {
+      if($request->option === null && $request->search === null) {
         $postlist = Cosokinhdoanh::join('giayphepattp','cosokinhdoanh.maCSKD','=', 'giayphepattp.maCSKD')
         ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD' )
         ->get(['cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'cosokinhdoanh.maCSKD','loaicskd.tenLoaiCSKD',
          'giayphepattp.trangThaiGP']);
-        return view('backend_pages/pages/providerLicense')->with(compact('postlist'));
+      } else if( $request->search === null){
+        $postlist = Cosokinhdoanh::join('giayphepattp','cosokinhdoanh.maCSKD','=', 'giayphepattp.maCSKD')
+        ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD' )
+        ->where('loaicskd.maLoaiCSKD', $request->option)
+        ->get(['cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'cosokinhdoanh.maCSKD','loaicskd.tenLoaiCSKD',
+         'giayphepattp.trangThaiGP']);
+      } else {
+        $postlist = Cosokinhdoanh::join('giayphepattp','cosokinhdoanh.maCSKD','=', 'giayphepattp.maCSKD')
+        ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD' )
+        ->where('loaicskd.maLoaiCSKD', $request->option)
+        ->where('cosokinhdoanh.maCSKD','LIKE', "%$request->search%")
+        ->get(['cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'cosokinhdoanh.maCSKD','loaicskd.tenLoaiCSKD',
+         'giayphepattp.trangThaiGP']);
+      }
+
+         $option = LoaiCSKD::all();
+        return view('backend_pages/pages/providerLicense')->with(compact('postlist'))
+        ->with(compact('option'));
     }
     public function Store(Request $request)
   {

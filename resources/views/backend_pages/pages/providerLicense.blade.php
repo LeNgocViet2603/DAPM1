@@ -15,27 +15,28 @@
          </div>
 
          <div class="provider-form-search">
-            <form action="">
+            <form>
                <div class="row pb-4">
                   <div class="col col-4">
                      <div class="provider-form__item">
                         <span>Lĩnh vực</span>
-                        <select name="myselect" id="myselect">
-                           <option value="1" selected='selected'>-- Chọn ngành kinh doanh -- </option>
-                           <option value="2">Item 2</option>
+                        <select name="option" id="myselect">
+                           @foreach ($option as $key => $item)
+                           <option value="{{$item->maLoaiCSKD}}">{{$item->tenLoaiCSKD}}</option>
+                           @endforeach
                         </select>
 
                      </div>
                   </div>
-                  <div class="col col-4">
+                  <div class=" col col-4">
                      <div class="provider-form__item">
                         <span>Mã cơ sở: </span>
-                        <input type="text" placeholder="Nhập mã cơ sở">
+                        <input type="text" placeholder="Nhập mã cơ sở" id="search-input" name="search">
                      </div>
                   </div>
                   <div class="col col-4">
                      <!-- <div style="display: flex; justify-content: flex-end;"> -->
-                     <button class="btn btn-primary">Tìm kiếm</button>
+                     <button class="btn btn-primary" type="submit" id="submit-search">Tìm kiếm</button>
                      <!-- </div> -->
                   </div>
                </div>

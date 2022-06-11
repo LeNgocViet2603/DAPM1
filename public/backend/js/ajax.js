@@ -89,8 +89,9 @@ $(document).ready(function () {
     });
   });
 
-  // $("body").on("click", "#modal-id", function (e) {
-  //   console.log("huhu");
-  //   $("#submit").prop("disabled", false);
-  // });
+  // search
+  $("body").on("click", "#submit-search", function (e) {
+    // e.preventDefault();
+
+  });
 });
