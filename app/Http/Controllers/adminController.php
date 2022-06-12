@@ -15,4 +15,6 @@ class adminController extends Controller
     // {
     //     return view('admin.pages.dashboard');
     // }
+
+    
 }

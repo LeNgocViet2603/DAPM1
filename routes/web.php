@@ -37,5 +37,10 @@ Route::prefix('admin-page')->group(function () {
     //     'uses' => 'adminController@ShowDashboard'
     // ]);
 
+    Route::get('/statistics', [
+        'as' => 'statistics.statistics',
+        'uses' => 'StatisticsController@Statistics'
+    ]);
+
 });
 // end admin routes
