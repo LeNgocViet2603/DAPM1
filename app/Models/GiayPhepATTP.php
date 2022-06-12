@@ -5,24 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cosokinhdoanh extends Model
+class GiayPhepATTP extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
     protected $fillable = [
-        'maCSKD', 'tenCSKD', 'maNguoiDung', 'maLoaiCSKD','diaChi', 'maPhuongXa'
+        'maGiayPhepATTP', 'maCSKD ', 'maVanBan', 'ngayCap','thoiHan', 'ngayThuHoi', 'trangThaiGP'
     ];
     protected $primaryKey = 'maCSKD';
-    protected $table = 'cosokinhdoanh';
+    protected $table = 'giayphepattp';
 
-    public function nguoidung(){
-      return $this->belongsTo('App\Models\NguoiDung','maNguoiDung','maNguoiDung');
+    public function cosokinhdoanh(){
+      return $this->belongsTo('App\Models\Cosokinhdoanh','maCSKD','maCSKD');
    }
-   public function linhvuc(){
-      return $this->belongsTo('App\Models\LoaiCSKD','maLoaiCSKD','maLoaiCSKD');
-   }
-   public function phuongxa(){
-      return $this->belongsTo('App\Models\PhuongXa','maPhuongXa','maPhuongXa');
+   public function vanban(){
+      return $this->belongsTo('App\Models\VanBan','maVanBan','maVanBan');
    }
 }
