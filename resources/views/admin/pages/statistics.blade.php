@@ -106,7 +106,7 @@
         <div class="row list-form">
             <h3>Danh sách cơ sở</h3>
             <table class="table table-bordered">
-               <thead>
+               <thead class="table-header">
                   <tr>
                      <th scope="col">STT</th>
                      <th scope="col">Tên cơ sở</th>
@@ -200,7 +200,30 @@
                   </tr>
                </tbody>
             </table>
-         </div>
+
+            <!-- begin paginate -->
+            <div class="page-form">
+                <div class="ew-page">
+                    <span class="page">Trang thứ </span>
+                    <input class="form-control" type="text" data-pagesize="100" data-pagecount="12" name="pageno" value="1">
+                    <span class="total-page"> / 100</span>
+                </div>
+
+                <div class="ew-page">
+                    <span class="total-result">Hiển thị 10 của 500 kết quả</span>
+                </div>
+
+                <div class="ew-page">
+                    <span>Số hàng </span>
+                    <select name="recperpage" class="line-number" id="">
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end paginate -->
+        </div>
         <!-- end table -->
     </section>
     <!-- /.content -->
