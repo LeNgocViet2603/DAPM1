@@ -1,0 +1,30 @@
+.error {
+    color: red;
+}
+
+.cbb-filter {
+    margin: 10px;
+}
+
+.cbb-input {
+    float: right;
+    width: 200px;
+    height: 30px;
+    color: #000;
+    padding-left: 0.5rem;
+    border-radius: 3px;
+    line-height: calc(1.5em + .75rem);
+}
+
+.btn-filter {
+    margin-left: 10px;
+    width: 110px;
+}
+
+.list-form {
+    margin: 10px;
+}
+
+.row-name {
+    width: 40%;
+}
