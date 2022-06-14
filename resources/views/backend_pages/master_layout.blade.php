@@ -71,6 +71,7 @@
       </aside>
       <script>
       var store = <?php echo json_encode(route('cosokinhdoanh.store')) ?>;
+      var block = <?php echo json_encode(route('kehoachthanhtra.block')) ?>;
       </script>
       <!-- /.control-sidebar -->
    </div>
