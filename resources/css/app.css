@@ -50,3 +50,7 @@
 .modal-dialog {
     max-width: 600px !important;
 }
+
+#info-premises {
+    display: none;
+}
