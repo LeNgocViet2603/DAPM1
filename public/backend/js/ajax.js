@@ -90,9 +90,39 @@ $(document).ready(function () {
       }
     });
   });
+  console.log("ready");
+  // thu hoi
+  $("body").on("click", "#block-detail", function (e) {
+    console.log("ha");
+    var id = $(this).data("iddetail");
+    var makehoach = $(this).data("makehoach");
+    $(this).css("color", "red");
+    $.get(block + "/" + id + "/edit/" + makehoach + "", function (data) {
+      console.log("Data: ", data);
+      $("#box-list").removeClass("col-12");
+      $("#box-list").addClass("col-7");
+      $("#info-premises").css("display", "block");
 
-  // search
-  $("body").on("click", "#submit-search", function (e) {
-    // e.preventDefault();
+      let trangThaiGP = data.giayphep.trangThaiGP;
+      $("#tenChu").html(data.info.name);
+      $("#tenCS").html(data.data.tenCSKD);
+      $("#diachi").html(data.data.diaChi);
+      $("#dichvu").html(data.info.nameService);
+
+      $("#tungay").html(data.giayphep.ngayCap);
+      $("#magp").html(data.giayphep.maGiayPhepATTP);
+      $("#denngay").html(data.giayphep.thoiHan);
+      $("#ketqua").html(data.ketquathanhtra.ketqua);
+      $("#ngaythanhtra").html(data.ketquathanhtra.thoigian);
+
+      console.log("idButton", idButton);
+      if (trangThaiGP === 1) {
+        $("#submit").prop("disabled", true);
+        $("#submit").addClass("btn-dark");
+      } else {
+        $("#submit").prop("disabled", false);
+        $("#submit").removeClass("btn-dark");
+      }
+    });
   });
 });
