@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class NhomThanhTra extends Model
 {
     use HasFactory;
@@ -13,7 +14,7 @@ class NhomThanhTra extends Model
     protected $fillable = [
         'maNhomThanhTra', 'maNguoiThanhTra'
     ];
-    protected $primaryKey = ['maAnhmaNhomThanhTra', 'maNguoiThanhTra'];
+    protected $primaryKey = ['maNhomThanhTra', 'maNguoiThanhTra'];
     
     protected $table = 'nhomthanhtra';
 

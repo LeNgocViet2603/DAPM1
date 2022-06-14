@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KeHoachThanhTra extends Model
+class KetQuaThanhTra extends Model
 {
     use HasFactory;
 
@@ -17,7 +17,7 @@ class KeHoachThanhTra extends Model
     
     protected $table = 'ketquathanhtra';
 
-    public function nguoidung(){
+    public function kehoachthanhtra(){
       return $this->belongsTo('App\Models\KeHoachThanhTra','maKHTT','maKHTT');
    }
     
