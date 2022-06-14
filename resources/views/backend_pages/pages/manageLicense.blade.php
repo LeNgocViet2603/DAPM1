@@ -14,7 +14,7 @@
             <h2>Danh sách những cơ sở kinh doanh không đủ tiêu chuẩn VSATTP </h2>
          </div>
          <div class="row">
-            <div class="col col-8">
+            <div class="col col-7">
                <div class="list-result">
                   <div class="list-result__box">
                      <h5 class="pb-4">Kết quả thanh tra ngày(01/05/2022 - 10/05/2022)</h5>
@@ -194,15 +194,15 @@
                                     </div>
                                  </td>
                               </tr>
-
                            </tbody>
                         </table>
                      </div>
                   </div>
                </div>
             </div>
-            <div class="col col-4">
+            <div class="col col-5">
                <div class="info-sup">
+                  <h2>Thông tin cơ sở</h2>
                   <ul class="info-sup__list">
                      <li class="info-sup__list-item">
                         <p>Mã cơ sở: </p>
@@ -227,18 +227,34 @@
                         <span>Công nghiệp</span>
                      </li>
                      <li class="info-sup__list-item">
+                        <p>Ngày thanh tra: </p>
+                        <span>20/10/2022</span>
+                     </li>
+
+                     <li class="info-sup__list-item">
+                        <p>Cán bộ thanh tra: </p>
+                        <ol>
+                           <li>Cán bộ: <b>Bùi Văn Sỷ</b></b></li>
+                           <li>Cán bộ: <b>Bùi Văn Sỷ</b></b></li>
+                        </ol>
+                     </li>
+                     <li class="info-sup__list-item">
+                        <p>Thời hạn giấy chứng nhận: </p>
                         <div class="box-time-licence">
                            <div>
-                              Từ ngày:
-                              <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01"
-                                 max="2018-12-31">
+                              Từ ngày: 20/10/2022
                            </div>
                            <div>
-                              Từ ngày:
-                              <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01"
-                                 max="2018-12-31">
+                              Đến ngày: 20/10/2023
                            </div>
                         </div>
+                     </li>
+                     <li class="info-sup__list-item">
+                        <p>Kết quả thanh tra: </p>
+                        <ul>
+                           <li>Không đủ dụng cụ chế biến</li>
+                           <li>Không đủ dụng cụ thu gom rác, không đảm bảo vệ sinh</li>
+                        </ul>
                      </li>
 
                      <button type="button" class="btn btn-primary">Thu hồi giấy phép</button>

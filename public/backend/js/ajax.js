@@ -44,9 +44,9 @@ $(document).ready(function () {
           console.log("tadaa", data);
         },
         error: function (data) {
-          console.log("Error......", data);
           $("#companydata").trigger("reset");
           $("#modal-id").modal("hide");
+
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -54,10 +54,12 @@ $(document).ready(function () {
             showConfirmButton: false,
             timer: 1500,
           });
+          console.log("Error......", location.href);
         },
       }).done(function (res) {
         console.log("DONE", res);
       });
+      location.href = location.href;
     }
   });
   //Edit modal window
@@ -92,6 +94,5 @@ $(document).ready(function () {
   // search
   $("body").on("click", "#submit-search", function (e) {
     // e.preventDefault();
-
   });
 });
