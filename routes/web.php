@@ -39,7 +39,7 @@ Route::prefix('admin-page')->group(function () {
 
     Route::get('/statistics', [
         'as' => 'statistics.statistics',
-        'uses' => 'StatisticsController@Statistics'
+        'uses' => 'StatisticsController@index'
     ]);
 
 });

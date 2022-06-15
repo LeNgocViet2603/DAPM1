@@ -28,64 +28,58 @@
         <!-- begin container-fluid -->
         <div class="container-fluid">
             <!-- begin row filter-->
-            <div class="provider-form-search">
+            <div class="form-filter">
             <form>
                <div class="row pb-4">
                   <div class="col col-4 cbb-filter">
-                     <div class="provider-form__item">
+                     <div class="form-item">
                         <span>Lĩnh vực</span>
-                        <select class="cbb-input" name="option" id="myselect">
-                           <option value="">Tất cả</option>
-                           <option value="">Dịch vụ ăn uống</option>
-                           <option value="">Dịch vụ ăn uống</option>
-                           <option value="">Dịch vụ ăn uống</option>
-                           <option value="">Dịch vụ ăn uống</option>
-                           <option value="">Dịch vụ ăn uống</option>
-                           <option value="">Dịch vụ ăn uống</option>
+                        <select class="cbb-input" name="service" id="">
+                              <option value="0">Tất cả</option>
+                           @foreach ($data['service'] as $item)
+                              <option value="{{$item->maLoaiCSKD}}">{{$item->tenLoaiCSKD}}</option>
+                           @endforeach
                         </select>
 
                      </div>
                   </div>
 
                   <div class=" col col-4 cbb-filter">
-                     <div class="provider-form__item">
+                     <div class="form-item">
                         <span>Tình trạng: </span>
-                        <select class="cbb-input" name="option" id="myselect">
-                           <option value="">Tất cả</option>
-                           <option value="">Không vi phạm</option>
-                           <option value="">Vi phạm</option>
-                        </select>
+                        <!-- <select class="cbb-input" name="status" id="">
+                           <option value="0">Tất cả</option>
+                           <option value="inactive" {{request()->status='inactive'?'selected':false}}>Không vi phạm</option>
+                           <option value="active" {{request()->status='active'?'selected':false}}>Vi phạm</option>
+                        </select> -->
+                        <!-- <select class="cbb-input" name="status" id="">
+                           <option value="0">Tất cả</option>
+                           <option value="inactive">Không vi phạm</option>
+                           <option value="active">Vi phạm</option>
+                        </select> -->
                      </div>
                   </div>
 
                   <div class="col col-4 cbb-filter">
-                     <div class="provider-form__item">
+                     <div class="form-item">
                         <span>Quận/Huyện: </span>
-                        <select class="cbb-input" name="option" id="myselect">
-                           <option value="">Tất cả</option>
-                           <option value="">Hải Châu</option>
-                           <option value="">Thanh Khuê</option>
-                           <option value="">Liên Chiểu</option>
-                           <option value="">Ngũ hành Sơn</option>
-                           <option value="">Sơn Trà</option>
-                           <option value="">Hòa Vang</option>
-                           <option value="">Hoàng Sa</option>
+                        <select class="cbb-input" name="district" id="">
+                              <option value="0">Tất cả</option>
+                           @foreach ($data['district'] as $item)
+                              <option value="{{$item->maQuanHuyen}}">{{$item->tenQuanHuyen}}</option>
+                           @endforeach
                         </select>
                      </div>
                   </div>
 
                   <div class="col col-4 cbb-filter">
-                     <div class="provider-form__item">
+                     <div class="form-item">
                         <span>Phường/Xã: </span>
-                        <select class="cbb-input" name="option" id="myselect">
-                           <option value="">Tất cả</option>
-                           <option value="">Thanh Bình</option>
-                           <option value="">Thanh Bình</option>
-                           <option value="">Thanh Bình</option>
-                           <option value="">Thanh Bình</option>
-                           <option value="">Thanh Bình</option>
-                           <option value="">Thanh Bình</option>
-                           <option value="">Thanh Bình</option>
+                        <select class="cbb-input" name="commune" id="">
+                              <option value="0">Tất cả</option>
+                           @foreach ($data['commune'] as $item)
+                              <option value="{{$item->maPhuongXa}}">{{$item->tenPhuongXa}}</option>
+                           @endforeach
                         </select>
                      </div>
                   </div>
@@ -108,96 +102,31 @@
             <table class="table table-bordered">
                <thead class="table-header">
                   <tr>
-                     <th scope="col">STT</th>
-                     <th scope="col">Tên cơ sở</th>
-                     <th scope="col">Số CN ATTP</th>
-                     <th scope="col">Địa chỉ</th>
-                     <th scope="col">Lĩnh vực</th>
+                     <th scope="col" class="row-stt">STT</th>
+                     <th scope="col" class="row-name">Tên cơ sở</th>
+                     <th scope="col" class="row-cert">Số CN ATTP</th>
+                     <th scope="col" class="row-address">Địa chỉ</th>
+                     <th scope="col" class="row-areas">Lĩnh vực</th>
                      <!-- <th scope="col">Trạng thái</th> -->
                   </tr>
                </thead>
                <tbody>
-                  <tr>
-                     <th scope="row">1</th>
-                     <td class="row-name">Địa điểm kinh doanh Phúc Long ĐNG 63 - KS - Chi nhánh Đà Nẵng - Công ty cổ phẩn Phúc Long Heritage</td>
-                     <td>132/2022/ATTP-CNĐK</td>
-                     <td>588 Phạm Hùng</td>
-                     <td>Kinh doanh thực phẩm</td>
-                  </tr>
-
-                  <tr>
-                     <th scope="row">2</th>
-                     <td class="row-name">Địa điểm kinh doanh Phúc Long ĐNG 63 - KS - Chi nhánh Đà Nẵng - Công ty cổ phẩn Phúc Long Heritage</td>
-                     <td>132/2022/ATTP-CNĐK</td>
-                     <td>588 Phạm Hùng</td>
-                     <td>Kinh doanh thực phẩm</td>
-                  </tr>
-
-                  <tr>
-                     <th scope="row">3</th>
-                     <td class="row-name">Địa điểm kinh doanh Phúc Long ĐNG 63 - KS - Chi nhánh Đà Nẵng - Công ty cổ phẩn Phúc Long Heritage</td>
-                     <td>132/2022/ATTP-CNĐK</td>
-                     <td>588 Phạm Hùng</td>
-                     <td>Kinh doanh thực phẩm</td>
-                  </tr>
-
-                  <tr>
-                     <th scope="row">4</th>
-                     <td class="row-name">Địa điểm kinh doanh Phúc Long ĐNG 63 - KS - Chi nhánh Đà Nẵng - Công ty cổ phẩn Phúc Long Heritage</td>
-                     <td>132/2022/ATTP-CNĐK</td>
-                     <td>588 Phạm Hùng</td>
-                     <td>Kinh doanh thực phẩm</td>
-                  </tr>
-
-                  <tr>
-                     <th scope="row">5</th>
-                     <td class="row-name">Địa điểm kinh doanh Phúc Long ĐNG 63 - KS - Chi nhánh Đà Nẵng - Công ty cổ phẩn Phúc Long Heritage</td>
-                     <td>132/2022/ATTP-CNĐK</td>
-                     <td>588 Phạm Hùng</td>
-                     <td>Kinh doanh thực phẩm</td>
-                  </tr>
-
-                  <tr>
-                     <th scope="row">6</th>
-                     <td class="row-name">Địa điểm kinh doanh Phúc Long ĐNG 63 - KS - Chi nhánh Đà Nẵng - Công ty cổ phẩn Phúc Long Heritage</td>
-                     <td>
-                        <button type="button" class="btn btn-link error" id="btn-detail" data-id="">Vi phạm</button>
-                     </td>
-                     <td>588 Phạm Hùng</td>
-                     <td>Kinh doanh thực phẩm</td>
-                  </tr>
-
-                  <tr>
-                     <th scope="row">7</th>
-                     <td class="row-name">Địa điểm kinh doanh Phúc Long ĐNG 63 - KS - Chi nhánh Đà Nẵng - Công ty cổ phẩn Phúc Long Heritage</td>
-                     <td>132/2022/ATTP-CNĐK</td>
-                     <td>588 Phạm Hùng</td>
-                     <td>Kinh doanh thực phẩm</td>
-                  </tr>
-
-                  <tr>
-                     <th scope="row">8</th>
-                     <td class="row-name">Địa điểm kinh doanh Phúc Long ĐNG 63 - KS - Chi nhánh Đà Nẵng - Công ty cổ phẩn Phúc Long Heritage</td>
-                     <td>132/2022/ATTP-CNĐK</td>
-                     <td>588 Phạm Hùng</td>
-                     <td>Kinh doanh thực phẩm</td>
-                  </tr>
-
-                  <tr>
-                     <th scope="row">9</th>
-                     <td class="row-name">Địa điểm kinh doanh Phúc Long ĐNG 63 - KS - Chi nhánh Đà Nẵng - Công ty cổ phẩn Phúc Long Heritage</td>
-                     <td>132/2022/ATTP-CNĐK</td>
-                     <td>588 Phạm Hùng</td>
-                     <td>Kinh doanh thực phẩm</td>
-                  </tr>
-
-                  <tr>
-                     <th scope="row">10</th>
-                     <td class="row-name">Địa điểm kinh doanh Phúc Long ĐNG 63 - KS - Chi nhánh Đà Nẵng - Công ty cổ phẩn Phúc Long Heritage</td>
-                     <td>132/2022/ATTP-CNĐK</td>
-                     <td>588 Phạm Hùng</td>
-                     <td>Kinh doanh thực phẩm</td>
-                  </tr>
+                  <?php $stt = 1; ?>
+                  @foreach ($data['store'] as $item)
+                     <tr>
+                        <th scope="row">{{$stt++}}</th>
+                        <td>{{$item->tenCSKD}}</td>
+                        <td>
+                           @if($item->trangThaiGP === 1)
+                              {{$item->maGiayPhepATTP}}
+                           @else
+                              <button type="button" class="btn btn-link error" id="btn-detail" data-id="{{ $item->maCSKD}}">Vi phạm</button>
+                           @endif
+                           </td>
+                        <td>{{$item->diaChi}}</td>
+                        <td>{{$item->tenLoaiCSKD}}</td>
+                     </tr>
+                  @endforeach
                </tbody>
             </table>
 
@@ -210,7 +139,7 @@
                 </div>
 
                 <div class="ew-page">
-                    <span class="total-result">Hiển thị 10 của 500 kết quả</span>
+                    <span class="total-result">Hiển thị 10 của {{count(\app\Models\CoSoKinhDoanh::all())}} kết quả</span>
                 </div>
 
                 <div class="ew-page">
@@ -225,6 +154,43 @@
             <!-- end paginate -->
         </div>
         <!-- end table -->
+
+        <!-- begin chart -->
+        <!-- <canvas id="countries" width="600" height="400"></canvas>
+        <script>
+            // pie chart data
+            var pieData = [
+                {
+                    value: 20,
+                    color:"#878BB6"
+                },
+                {
+                    value : 40,
+                    color : "#4ACAB4"
+                },
+                {
+                    value : 10,
+                    color : "#FF8153"
+                },
+                {
+                    value : 30,
+                    color : "#FFEA88"
+                }
+            ];
+
+            // pie chart options
+            var pieOptions = {
+                segmentShowStroke : false,
+                animateScale : true
+            }
+
+            // get pie chart canvas
+            var countries= document.getElementById("countries").getContext("2d");
+
+            // draw pie chart
+            new Chart(countries).Pie(pieData, pieOptions);
+        </script> -->
+        <!-- end chart -->
     </section>
     <!-- /.content -->
   </div>

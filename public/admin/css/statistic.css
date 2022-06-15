@@ -26,13 +26,29 @@
 }
 
 .table-header {
-    background-color: #535cff;
+    background-color: #007bff;
     color: #fff;
 }
 
-.row-name {
-    width: 40%;
+.row-stt {
+    width: 2%;
 }
+
+.row-name {
+    width: 35%;
+}
+
+.row-cert {
+    width: 15%;
+}
+
+.row-address {
+    width: 25%;
+}
+
+/* .row-areas {
+    width: 20%;
+} */
 
 .page-form {
     float: left;
