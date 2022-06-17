@@ -11,7 +11,7 @@ class CoSoKinhDoanh extends Model
 
     public $timestamps = false;
     protected $fillable = [
-        'maCSKD', 'tenCSKD', 'maNguoiDung', 'maLoaiCSKD','diaChi', 'maPhuongXa'
+        'maCSKD', 'tenCSKD', 'maNguoiDung', 'maLoaiCSKD','diaChi', 'maPhuongXa', 'trangThai'
     ];
     protected $primaryKey = 'maCSKD';
     protected $table = 'cosokinhdoanh';

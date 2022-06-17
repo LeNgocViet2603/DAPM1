@@ -112,7 +112,7 @@
                         <th scope="row">{{$stt++}}</th>
                         <td>{{$item->tenCSKD}}</td>
                         <td>
-                           @if($item->trangThaiGP === 1)
+                           @if($item->trangThai === 1)
                               {{$item->maGiayPhepATTP}}
                            @else
                               <button type="button" class="btn btn-link error" id="btn-detail" data-id="{{ $item->maCSKD}}">Vi phạm</button>
@@ -130,11 +130,11 @@
                 <div class="ew-page">
                     <span class="page">Trang thứ </span>
                     <input class="form-control" type="text" data-pagesize="100" data-pagecount="12" name="pageno" value="1">
-                    <span class="total-page"> / 100</span>
+                    <span class="total-page"> / 1</span>
                 </div>
 
                 <div class="ew-page">
-                    <span class="total-result">Hiển thị 10 của {{count(\app\Models\CoSoKinhDoanh::all())}} kết quả</span>
+                    <span class="total-result">Hiển thị <?php echo $stt-1 ?> của {{count(\app\Models\CoSoKinhDoanh::all())}} kết quả</span>
                 </div>
 
                 <div class="ew-page">
@@ -161,19 +161,21 @@
          <script>
             const data = {
                labels: [
-                  'Red',
-                  'Blue',
-                  'Yellow'
+                  'Nhà hàng ăn uống',
+                  'Cửa hàng ăn uống',
+                  'Chợ',
+                  'Sản Phẩm Cung Ứng'
                ],
                datasets: [{
                   label: 'My First Dataset',
-                  data: [300, 50, 100],
+                  data: [300, 50, 100, 100],
                   backgroundColor: [
                      'rgb(255, 99, 132)',
                      'rgb(54, 162, 235)',
-                     'rgb(255, 205, 86)'
+                     'rgb(255, 205, 86)',
+                     'rgb(75, 192, 192)'
                   ],
-                  hoverOffset: 4
+                  hoverOffset: 20 // Độ lệch khi hover
                }]
             };
 

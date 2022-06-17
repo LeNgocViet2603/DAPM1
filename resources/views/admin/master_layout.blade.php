@@ -28,6 +28,8 @@
 
   <!-- Statistics css -->
   <link rel="stylesheet" href="{{asset('admin/css/statistic.css')}}">
+
+  <link rel="shortcut icon" type="image/png" href="https://toigingiuvedep.vn/wp-content/uploads/2021/05/hinh-anh-mat-cuoi-deu-nham-nho.png"/>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
