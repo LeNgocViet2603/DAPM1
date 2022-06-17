@@ -21,8 +21,12 @@
     width: 110px;
 }
 
+.chartbox,
 .list-form {
     margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
 }
 
 .table-header {
@@ -90,4 +94,9 @@
 
 .ew-page .line-number {
     margin-left: 10px;
+}
+
+.chart-container {
+    width: 500px;
+    margin: 0 auto;
 }

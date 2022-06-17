@@ -47,16 +47,11 @@
                   <div class=" col col-4 cbb-filter">
                      <div class="form-item">
                         <span>Tình trạng: </span>
-                        <!-- <select class="cbb-input" name="status" id="">
-                           <option value="0">Tất cả</option>
-                           <option value="inactive" {{request()->status='inactive'?'selected':false}}>Không vi phạm</option>
-                           <option value="active" {{request()->status='active'?'selected':false}}>Vi phạm</option>
-                        </select> -->
-                        <!-- <select class="cbb-input" name="status" id="">
+                        <select class="cbb-input" name="status" id="">
                            <option value="0">Tất cả</option>
                            <option value="inactive">Không vi phạm</option>
                            <option value="active">Vi phạm</option>
-                        </select> -->
+                        </select>
                      </div>
                   </div>
 
@@ -156,40 +151,47 @@
         <!-- end table -->
 
         <!-- begin chart -->
-        <!-- <canvas id="countries" width="600" height="400"></canvas>
-        <script>
-            // pie chart data
-            var pieData = [
-                {
-                    value: 20,
-                    color:"#878BB6"
-                },
-                {
-                    value : 40,
-                    color : "#4ACAB4"
-                },
-                {
-                    value : 10,
-                    color : "#FF8153"
-                },
-                {
-                    value : 30,
-                    color : "#FFEA88"
-                }
-            ];
+         <div class="chartbox">
+            <h3>Biểu đồ</h3>
+            <div class="chart-container">
+               <canvas id="myChart"></canvas>
+            </div>
+         </div>
+         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <script>
+            const data = {
+               labels: [
+                  'Red',
+                  'Blue',
+                  'Yellow'
+               ],
+               datasets: [{
+                  label: 'My First Dataset',
+                  data: [300, 50, 100],
+                  backgroundColor: [
+                     'rgb(255, 99, 132)',
+                     'rgb(54, 162, 235)',
+                     'rgb(255, 205, 86)'
+                  ],
+                  hoverOffset: 4
+               }]
+            };
 
-            // pie chart options
-            var pieOptions = {
-                segmentShowStroke : false,
-                animateScale : true
-            }
+            // const option = {
 
-            // get pie chart canvas
-            var countries= document.getElementById("countries").getContext("2d");
+            // }
 
-            // draw pie chart
-            new Chart(countries).Pie(pieData, pieOptions);
-        </script> -->
+            const config = {
+               type: 'pie',
+               data: data
+               // options: option
+            };
+
+            const myChart = new Chart(
+               document.getElementById('myChart'),
+               config
+            );
+         </script>
         <!-- end chart -->
     </section>
     <!-- /.content -->

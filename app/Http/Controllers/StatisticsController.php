@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\CoSoKinhDoanh;
 use App\Models\GiayPhepATTP;
-use App\Models\NguoiDung;
 use App\Models\LoaiCSKD;
 use App\Models\PhuongXa;
 use App\Models\QuanHuyen;

@@ -101,6 +101,9 @@
 <script src="{{asset('admin/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('admin/js/pages/dashboard.js')}}"></script>
+<!-- chart canvas -->
+<script src="{{asset('admin/js/chartcanvas.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <!--  -->
 <script src="{{asset('admin/plugins/vietnamlocalselector/vietnamlocalselector.js')}}"></script>
