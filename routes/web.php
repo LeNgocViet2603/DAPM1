@@ -31,6 +31,14 @@ Route::prefix('admin-page')->group(function () {
         'as' => 'admin.index',
         'uses' => 'adminController@index'
     ]);
+    Route::get('/posts',[
+        'as' => 'admin.posts',
+        'uses' => 'adminController@posts'
+    ]);
+    Route::get('/add-post',[
+        'as' => 'admin.addPost',
+        'uses' => 'adminController@addPost'
+    ]);
 
     // Route::get('/dashboard', [
     //     'as' => 'admin.dashboard',
