@@ -12,15 +12,25 @@ use Illuminate\Http\Request;
 
 class manageLicenseController extends Controller
 {
-    public function showPageManageLicense()
+    public function showPageManageLicense(Request $request)
     {
         $arr = array(1, 2, 3, 4,5,6,7,8,9,10,11,12);
-        $getList = KeHoachThanhTra::join('ketquathanhtra','ketquathanhtra.maKHTT','=', 'kehoachthanhtra.maKHTT')
-        ->join('cosokinhdoanh', 'cosokinhdoanh.maCSKD', '=', 'kehoachthanhtra.maCSKD' )
-        ->join('giayphepattp', 'giayphepattp.maCSKD', '=', 'kehoachthanhtra.maCSKD' )
-        ->where('ketquathanhtra.trangThai', 1) 
-        ->get(['cosokinhdoanh.tenCSKD','cosokinhdoanh.maCSKD', 'giayphepattp.maGiayPhepATTP',  'ketquathanhtra.ketQuaThanhTra',
-         'ketQuaThanhTra.maKHTT', 'giayphepattp.trangThai']);
+        if($request->month_option === null) {
+            $getList = KeHoachThanhTra::join('ketquathanhtra','ketquathanhtra.maKHTT','=', 'kehoachthanhtra.maKHTT')
+            ->join('cosokinhdoanh', 'cosokinhdoanh.maCSKD', '=', 'kehoachthanhtra.maCSKD' )
+            ->join('giayphepattp', 'giayphepattp.maCSKD', '=', 'kehoachthanhtra.maCSKD' )
+            ->where('ketquathanhtra.trangThai', 1) 
+            ->get(['cosokinhdoanh.tenCSKD','cosokinhdoanh.maCSKD', 'giayphepattp.maGiayPhepATTP',  'ketquathanhtra.ketQuaThanhTra',
+             'ketQuaThanhTra.maKHTT', 'giayphepattp.trangThai']);
+        } else {
+            $getList = KeHoachThanhTra::join('ketquathanhtra','ketquathanhtra.maKHTT','=', 'kehoachthanhtra.maKHTT')
+            ->join('cosokinhdoanh', 'cosokinhdoanh.maCSKD', '=', 'kehoachthanhtra.maCSKD' )
+            ->join('giayphepattp', 'giayphepattp.maCSKD', '=', 'kehoachthanhtra.maCSKD' )
+            ->where('ketquathanhtra.trangThai', 1) 
+            ->whereRaw('EXTRACT(MONTH FROM ketquathanhtra.thoiGianThanhTra) = ?', $request->month_option)
+            ->get(['cosokinhdoanh.tenCSKD','cosokinhdoanh.maCSKD', 'giayphepattp.maGiayPhepATTP',  'ketquathanhtra.ketQuaThanhTra',
+             'ketQuaThanhTra.maKHTT', 'giayphepattp.trangThai']);
+        }
         
         return view('backend_pages/pages/manageLicense')->with(compact('getList'))
         ->with(compact('arr'));

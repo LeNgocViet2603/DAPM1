@@ -44,50 +44,53 @@
             </form>
          </div>
          <div class="row">
+            @if(count($postlist) <=0) <div style="font-size: 20px; display: block;">Không có cơ sở nào </div>
+         @else
+         <table class="table table-bordered">
             <h4>Danh sách cơ sở</h4>
-            <table class="table table-bordered">
-               <thead>
-                  <tr>
-                     <th scope="col">STT</th>
-                     <th scope="col">Tên cơ sở</th>
-                     <th scope="col">Mã cơ sở</th>
-                     <th scope="col">Địa chỉ</th>
-                     <th scope="col">Lĩnh vực</th>
-                     <th scope="col">Hành động</th>
-                     <th scope="col">Trạng thái</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  @foreach ($postlist as $key => $item)
-                  <tr>
-                     <th scope="row">{{$key + 1}}</th>
-                     <td>{{$item->tenCSKD}}</td>
-                     <td>{{$item->maCSKD}}</td>
-                     <td>{{$item->diaChi}}</td>
-                     <td>
-                        {{$item->tenLoaiCSKD}}
-                     </td>
-                     <td>
-                        <button type="button" class="btn btn-link" id="btn-detail" data-id="{{ $item->maCSKD}}">Xem chi
-                           tiết </button>
-                     </td>
-                     <td>
-                        @if($item->trangThaiGP === 1)
-                        <p class="btn btn-success" style="cursor: default;">Đã cấp</p>
-                        @else
+            <thead>
+               <tr>
+                  <th scope="col">STT</th>
+                  <th scope="col">Tên cơ sở</th>
+                  <th scope="col">Mã cơ sở</th>
+                  <th scope="col">Địa chỉ</th>
+                  <th scope="col">Lĩnh vực</th>
+                  <th scope="col">Hành động</th>
+                  <th scope="col">Trạng thái</th>
+               </tr>
+            </thead>
+            <tbody>
+               @foreach ($postlist as $key => $item)
+               <tr>
+                  <th scope="row">{{$key + 1}}</th>
+                  <td>{{$item->tenCSKD}}</td>
+                  <td>{{$item->maCSKD}}</td>
+                  <td>{{$item->diaChi}}</td>
+                  <td>
+                     {{$item->tenLoaiCSKD}}
+                  </td>
+                  <td>
+                     <button type="button" class="btn btn-link" id="btn-detail" data-id="{{ $item->maCSKD}}">Xem chi
+                        tiết </button>
+                  </td>
+                  <td>
+                     @if($item->trangThaiGP === 1)
+                     <p class="btn btn-success" style="cursor: default;">Đã cấp</p>
+                     @else
 
-                        <p class="btn btn-danger" style="cursor: default;">Chờ đợi</p>
-                        @endif
-                     </td>
-                  </tr>
-                  @endforeach
-               </tbody>
-            </table>
-         </div>
+                     <p class="btn btn-danger" style="cursor: default;">Chờ đợi</p>
+                     @endif
+                  </td>
+               </tr>
+               @endforeach
+            </tbody>
+         </table>
+         @endif
       </div>
-      @include('backend_pages/pages/components/modal')
-   </section>
-   <!-- /.content -->
+</div>
+@include('backend_pages/pages/components/modal')
+</section>
+<!-- /.content -->
 </div>
 
 @endsection

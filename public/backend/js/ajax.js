@@ -215,4 +215,21 @@ $(document).ready(function () {
     $(".btn-link-detail").removeClass("active"); // it remove all the active links
     $(this).addClass("active"); // it adds active class to the current link you have opened
   });
+
+  // func get params
+  $.urlParam = function (name) {
+    var results = new RegExp("[?&]" + name + "=([^&#]*)").exec(
+      window.location.href
+    );
+    if (results == null) {
+      return null;
+    }
+    return decodeURI(results[1]) || 0;
+  };
+  console.log($.urlParam("month_option"));
+  if ($.urlParam("month_option") === 0) {
+    $("#month-id").html("Tất cả");
+  } else {
+    $("#month-id").html($.urlParam("month_option"));
+  }
 });

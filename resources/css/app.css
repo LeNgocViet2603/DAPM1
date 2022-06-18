@@ -59,7 +59,7 @@
     color: red;
 }
 
-.list-result__box {
+.form-option {
     display: flex;
     justify-content: space-between;
 }
