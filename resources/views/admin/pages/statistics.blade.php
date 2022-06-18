@@ -161,14 +161,20 @@
          <script>
             const data = {
                labels: [
-                  'Nhà hàng ăn uống',
-                  'Cửa hàng ăn uống',
-                  'Chợ',
-                  'Sản Phẩm Cung Ứng'
+                  'Nhà hàng ăn uống (<?php echo round($data['countpie1']*100/$data['countstore']); echo '%' ?>)',
+                  'Cửa hàng ăn uống (<?php echo round($data['countpie2']*100/$data['countstore']); echo '%' ?>)',
+                  'Chợ (<?php echo round($data['countpie3']*100/$data['countstore']); echo '%' ?>)',
+                  'Sản Phẩm Cung Ứng (<?php echo round($data['countpie4']*100/$data['countstore']); echo '%' ?>)',
                ],
+
                datasets: [{
                   label: 'My First Dataset',
-                  data: [300, 50, 100, 100],
+                  data: [
+                     <?php echo $data['countpie1'] ?>,
+                     <?php echo $data['countpie2'] ?>,
+                     <?php echo $data['countpie3'] ?>,
+                     <?php echo $data['countpie4'] ?>
+                  ],
                   backgroundColor: [
                      'rgb(255, 99, 132)',
                      'rgb(54, 162, 235)',

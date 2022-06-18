@@ -103,7 +103,26 @@ class StatisticsController extends Controller
             $commune = PhuongXa::all();
         }
 
-        return ['store' => $store, 'service' => $service, 'district' => $district, 'commune' => $commune];
+        // $countpie = $store->where('cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD')
+        //                     ->groupby('cosokinhdoanh.maLoaiCSKD') ->count();
+        // $countpie1 = count($store->where('cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD')
+        //                     ->where('loaicskd.maLoaiCSKD', '=', '1'));
+        $countpie1 = DB::table('cosokinhdoanh')
+            ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', 'loaicskd.maLoaiCSKD')
+            ->where('loaicskd.maLoaiCSKD', '1')->count('cosokinhdoanh.maCSKD');
+        $countpie2 = DB::table('cosokinhdoanh')
+            ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', 'loaicskd.maLoaiCSKD')
+            ->where('loaicskd.maLoaiCSKD', '2')->count('cosokinhdoanh.maCSKD');
+        $countpie3 = DB::table('cosokinhdoanh')
+            ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', 'loaicskd.maLoaiCSKD')
+            ->where('loaicskd.maLoaiCSKD', '3')->count('cosokinhdoanh.maCSKD');
+        $countpie4 = DB::table('cosokinhdoanh')
+            ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', 'loaicskd.maLoaiCSKD')
+            ->where('loaicskd.maLoaiCSKD', '4')->count('cosokinhdoanh.maCSKD');
+
+        return ['store' => $store, 'service' => $service, 'district' => $district, 'commune' => $commune,
+            'countpie1' => $countpie1, 'countpie2' => $countpie2, 'countpie3' => $countpie3, 'countpie4' => $countpie4,
+            'countstore' => $countstore];
     }
 
     public function index(Request $request)
