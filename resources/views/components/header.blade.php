@@ -1,4 +1,4 @@
-<header class="bg-green-600">
+<header class="bg-green-600 sticky top-0 z-[999]">
     <div class="container mx-auto">
         <!-- main-header -->
         <div class="relative flex h-[8rem] items-center">
@@ -16,14 +16,27 @@
                     <img src="https://antoanthucpham.danang.gov.vn/documents/10181/10940/03.png" alt="" class="object-cover w-full h-full">
                 </div>
             </div>
-            <div class="absolute bottom-0 right-0 bg-green-500/80 space-x-2 flex items-center">
-                <button class=" px-3 py-1 text-slate-900 font-bold text-sm"> Đăng Ký</button>
-                <span class="w-[1px] h-5 block bg-slate-900"></span>
-                <button class=" px-3 py-1 text-slate-900 font-bold text-sm"> Đăng Nhập</button>
-            </div>
+            <?php
+            $isLogin = request()->session()->get('user');
+            if ($isLogin) {
+            ?>
+                <div class="absolute bottom-0 right-0 bg-green-500/80 space-x-2 flex items-center">
+                    <span class="px-3 py-1 text-slate-900 font-bold text-sm"> Xin chào </span>
+                    <button class="pr-3 py-1 text-slate-100 font-bold"> {{$isLogin->ho}} {{$isLogin->ten}}</button>
+                </div>
+            <?php
+            } else { ?>
+                <div class="absolute bottom-0 right-0 bg-green-500/80 space-x-2 flex items-center">
+                    <button class=" px-3 py-1 text-slate-900 font-bold text-sm"> Đăng Ký</button>
+                    <span class="w-[1px] h-5 block bg-slate-900"></span>
+                    <button class=" px-3 py-1 text-slate-900 font-bold text-sm"> Đăng Nhập</button>
+                </div>
+            <?php
+            }
+            ?>
         </div>
         <!-- menu-header -->
-        <ul class="flex">
+        <ul class="flex text-sm items-center">
             <li class="flex-1 px-3 py-3 text-white font-bold uppercase cursor-pointer hover:bg-green-700 text-center">
                 trang chủ
             </li>

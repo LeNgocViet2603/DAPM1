@@ -22,6 +22,24 @@ Route::prefix('')->group(function () {
         'as' => 'index',
         'uses' => 'HomeController@index'
     ]);
+    Route::get('/login', [
+        'as' => 'login',
+        'uses' => 'LoginController@index'
+    ]);
+    Route::get('/register', [
+        'as' => 'register',
+        'uses' => 'RegisterController@index'
+    ]);
+
+    Route::post('/register', [
+        'as' => 'register',
+        'uses' => 'RegisterController@register'
+    ]);
+
+    Route::post('/login', [
+        'as' => 'login',
+        'uses' => 'LoginController@authentication'
+    ]);
 });
 // end user routes
 
@@ -41,6 +59,5 @@ Route::prefix('admin-page')->group(function () {
         'as' => 'statistics.statistics',
         'uses' => 'StatisticsController@Statistics'
     ]);
-
 });
 // end admin routes

@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .border-logo {
+        border-radius: 0% 100% 21% 79% / 100% 0% 100% 0%;
+    }
+}
+
+.banner-slider.slick-slider .slick-track,
+.slick-list {
+    height: 100%;
+}
