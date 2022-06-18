@@ -24,7 +24,8 @@ Route::get('/provider-license/{id}/edit', 'App\Http\Controllers\providerLicenseC
 Route::post('/provider-license', 'App\Http\Controllers\providerLicenseController@Store')->name('cosokinhdoanh.store');
 Route::put('/provider-license', 'App\Http\Controllers\providerLicenseController@UpdateStatus')->name('cosokinhdoanh.store');
 
-// router thu hoi giay phep
 
+// router thu hoi giay phep
 Route::get('/manage-license', 'App\Http\Controllers\manageLicenseController@showPageManageLicense')->name('kehoachthanhtra.block');
 Route::get('/manage-license/{id}/edit/{makehoach}', 'App\Http\Controllers\manageLicenseController@update')->name('ketquathanhtra.update');
+Route::put('/manage-license', 'App\Http\Controllers\manageLicenseController@Store')->name('ketquathanhtra.store');

@@ -29,9 +29,8 @@
 
          <li class="info-sup__list-item">
             <p>Cán bộ thanh tra: </p>
-            <ol>
-               <li>Cán bộ: <b>Bùi Văn Sỷ</b></b></li>
-               <li>Cán bộ: <b>Bùi Văn Sỷ</b></b></li>
+            <ol id='list-people'>
+
             </ol>
          </li>
          <li class="info-sup__list-item">
@@ -52,6 +51,6 @@
             <p id="ketqua" style="color: red; padding-left: 15px;"></p>
          </li>
 
-         <button type="button" class="btn btn-primary">Thu hồi giấy phép</button>
+         <button type="button" class="btn btn-primary" id="submit-block">Thu hồi giấy phép</button>
       </ul>
    </div>

@@ -38,6 +38,7 @@ $(document).ready(function () {
       $("#validation-date").html("");
     }
   });
+
   //Save data into database
   $("body").on("click", "#submit", function (event) {
     event.preventDefault();
@@ -101,6 +102,7 @@ $(document).ready(function () {
       location.href = location.href;
     }
   });
+
   //Edit modal window
   $("body").on("click", "#btn-detail", function (event) {
     var id = $(this).data("id");
@@ -125,38 +127,92 @@ $(document).ready(function () {
     });
   });
   console.log("ready");
+
   // thu hoi
   $("body").on("click", "#block-detail", function (e) {
-    console.log("ha");
     var id = $(this).data("iddetail");
+    console.log("id", id);
     var makehoach = $(this).data("makehoach");
-    $(this).css("color", "red");
     $.get(block + "/" + id + "/edit/" + makehoach + "", function (data) {
       console.log("Data: ", data);
       $("#box-list").removeClass("col-12");
       $("#box-list").addClass("col-7");
       $("#info-premises").css("display", "block");
 
-      let trangThaiGP = data.giayphep.trangThaiGP;
-      $("#tenChu").html(data.info.name);
-      $("#tenCS").html(data.data.tenCSKD);
-      $("#diachi").html(data.data.diaChi);
-      $("#dichvu").html(data.info.nameService);
+      $("#tenChu").html(data.data[0].ho + " " + data.data[0].ten);
+      $("#tenCS").html(data.data[0].tenCSKD);
+      $("#diachi").html(data.data[0].diaChi);
+      $("#dichvu").html(data.data[0].tenLoaiCSKD);
 
-      $("#tungay").html(data.giayphep.ngayCap);
-      $("#magp").html(data.giayphep.maGiayPhepATTP);
-      $("#denngay").html(data.giayphep.thoiHan);
-      $("#ketqua").html(data.ketquathanhtra.ketqua);
-      $("#ngaythanhtra").html(data.ketquathanhtra.thoigian);
+      $("#tungay").html(data.data[0].ngayCap);
+      $("#magp").html(data.data[0].maGiayPhepATTP);
+      $("#denngay").html(data.data[0].thoiHan);
+      $("#ketqua").html(data.ketqua[0].ketQuaThanhTra);
+      $("#ngaythanhtra").html(data.ketqua[0].thoiGianThanhTra);
 
-      console.log("idButton", idButton);
-      if (trangThaiGP === 1) {
-        $("#submit").prop("disabled", true);
-        $("#submit").addClass("btn-dark");
+      var elements = "";
+      $.each(data.canbott, function (key, value) {
+        elements +=
+          "<li>Cán bộ: <b>" + value.ho + " " + value.ten + "</b></b></li>";
+      });
+      $("#list-people").html(elements);
+
+      if (data.data[0].trangThai === 2) {
+        $("#submit-block").prop("disabled", true);
+        $("#submit-block").addClass("btn-dark");
       } else {
-        $("#submit").prop("disabled", false);
-        $("#submit").removeClass("btn-dark");
+        $("#submit-block").prop("disabled", false);
+        $("#submit-block").removeClass("btn-dark");
       }
     });
+  });
+
+  // save server block
+  $("body").on("click", "#submit-block", function (e) {
+    var today = new Date();
+    $.ajax({
+      url: block,
+      headers: {
+        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+      },
+      type: "PUT",
+      data: {
+        maGiayPhepATTP: $("#magp").html(),
+        ngayThuHoi: getDateTime(
+          today.getFullYear(),
+          today.getMonth() + 1,
+          today.getDate()
+        ),
+        trangThai: 2,
+      },
+      dataType: "json",
+      success: function (data) {
+        console.log("tadaa", data);
+        $("#companydata").trigger("reset");
+        $("#modal-id").modal("hide");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title:
+            "Thu hồi giấy chứng nhận của" +
+            " " +
+            $("#tenChu").html() +
+            " thành công",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      },
+      error: function (data) {
+        console.log("Error......", location.href);
+      },
+    }).done(function (res) {
+      console.log("DONE", res);
+    });
+    location.href = location.href;
+  });
+  // active link details
+  $(".btn-link-detail").click(function () {
+    $(".btn-link-detail").removeClass("active"); // it remove all the active links
+    $(this).addClass("active"); // it adds active class to the current link you have opened
   });
 });

@@ -11,12 +11,12 @@ class KetQuaThanhTra extends Model
 
     public $timestamps = false; 
     protected $fillable = [
-        'maKQTT', 'maKHTT', 'thoiGianThanhTra','ketQuaThanhTra','ghiChu'
+        'maKQTT', 'maKHTT', 'thoiGianThanhTra','ketQuaThanhTra','ghiChu', 'trangThai'
     ];
     protected $primaryKey = 'maKQTT';
     
     protected $table = 'ketquathanhtra';
-
+    protected $keyType = 'string';
     public function kehoachthanhtra(){
       return $this->belongsTo('App\Models\KeHoachThanhTra','maKHTT','maKHTT');
    }

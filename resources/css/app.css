@@ -54,3 +54,12 @@
 #info-premises {
     display: none;
 }
+
+.btn-link-detail.active {
+    color: red;
+}
+
+.list-result__box {
+    display: flex;
+    justify-content: space-between;
+}

@@ -17,7 +17,7 @@ class NhomThanhTra extends Model
     protected $primaryKey = ['maNhomThanhTra', 'maNguoiThanhTra'];
     
     protected $table = 'nhomthanhtra';
-
+    public $incrementing = false;
     public function nguoidung(){
       return $this->belongsTo('App\Models\NguoiDung','maNguoiDung','maNguoiThanhTra');
    }

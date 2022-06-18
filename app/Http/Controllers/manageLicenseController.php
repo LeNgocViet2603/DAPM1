@@ -14,39 +14,53 @@ class manageLicenseController extends Controller
 {
     public function showPageManageLicense()
     {
+        $arr = array(1, 2, 3, 4,5,6,7,8,9,10,11,12);
         $getList = KeHoachThanhTra::join('ketquathanhtra','ketquathanhtra.maKHTT','=', 'kehoachthanhtra.maKHTT')
         ->join('cosokinhdoanh', 'cosokinhdoanh.maCSKD', '=', 'kehoachthanhtra.maCSKD' )
         ->join('giayphepattp', 'giayphepattp.maCSKD', '=', 'kehoachthanhtra.maCSKD' )
+        ->where('ketquathanhtra.trangThai', 1) 
         ->get(['cosokinhdoanh.tenCSKD','cosokinhdoanh.maCSKD', 'giayphepattp.maGiayPhepATTP',  'ketquathanhtra.ketQuaThanhTra',
-         'ketQuaThanhTra.maKHTT']);
+         'ketQuaThanhTra.maKHTT', 'giayphepattp.trangThai']);
         
-        return view('backend_pages/pages/manageLicense')->with(compact('getList'));
+        return view('backend_pages/pages/manageLicense')->with(compact('getList'))
+        ->with(compact('arr'));
+    }
+
+    public function Store(Request $request)
+    {
+      GiayPhepAttp::updateOrCreate(
+        [
+          'maGiayPhepATTP' => $request->maGiayPhepATTP 
+        ],
+        [
+          'ngayThuHoi' => $request->ngayThuHoi,
+          'trangThai' => $request->trangThai
+        ]
+      );
+  
+      return response()->json(
+        [
+          'success' => true,
+          'message' => 'Data inserted successfully'
+        ]
+      );
     }
     public function update($id, $makehoach)
     {
-        $coso  = Cosokinhdoanh::find($id);
-        $giayphep = GiayPhepAttp::find($id);
-        $name = $coso->nguoidung->ho .' '. $coso->nguoidung->ten;
-        $nameService = LoaiCSKD::find($coso->maLoaiCSKD);
-        $ketqua = KetQuaThanhTra::find($makehoach);
-        $manhomtt = KeHoachThanhTra::where('maKHTT', '=', $makehoach)->get("maNhomThanhTra");
+        $coso  = Cosokinhdoanh::join('nguoidung', 'nguoidung.maNguoiDung', '=', 'cosokinhdoanh.maNguoiDung')
+        ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD' )
+        ->join('giayphepattp', 'giayphepattp.maCSKD', '=', 'cosokinhdoanh.maCSKD' )
+        ->where('cosokinhdoanh.maCSKD', '=', $id)
+        ->get();
+        $ketqua = KetQuaThanhTra::where('maKHTT','=', $makehoach)->get();
+        $canbo = NhomThanhTra::join('kehoachthanhtra','kehoachthanhtra.maNhomThanhTra', '=', 'nhomthanhtra.maNhomThanhTra')
+        ->join('nguoidung', 'nguoidung.maNguoiDung', '=', 'nhomthanhtra.maNguoiThanhTra')
+        ->where('kehoachthanhtra.maKHTT', '=',$makehoach)
+        ->get(['ho','ten']);
         return response()->json([ 
         'data' => $coso,
-        'giayphep' => [
-            'ngayCap' => $giayphep->ngayCap,
-            'thoiHan' => $giayphep->thoiHan,
-            'maGiayPhepATTP'=> $giayphep->maGiayPhepATTP,
-            'trangThaiGP' => $giayphep->trangThaiGP,
-        ],
-        'info'=> [
-            'name' =>  $name,
-            'nameService' => $nameService->tenLoaiCSKD
-        ],
-        'ketquathanhtra' => [
-            'thoigian' =>$ketqua->thoiGianThanhTra,
-            'ketqua' => $ketqua->ketQuaThanhTra,
-            'canbott' => $manhomtt[0]->maNhomThanhTra,
-        ]
+        'ketqua' => $ketqua,
+        'canbott'=> $canbo
         ]);
   }
     

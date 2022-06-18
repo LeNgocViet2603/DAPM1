@@ -96,3 +96,6 @@ class providerLicenseController extends Controller
       ]);
   }
 }
+
+// SELECT * from ketquathanhtra, kehoachthanhtra, nhomthanhtra WHERE kehoachthanhtra.maKHTT = ketquathanhtra.maKHTT
+// and kehoachthanhtra.maNhomThanhTra = nhomthanhtra.maNhomThanhTra and kehoachthanhtra.maKHTT = 1 GROUP by kehoachthanhtra.maKHTT
