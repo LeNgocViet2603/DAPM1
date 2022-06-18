@@ -11,10 +11,11 @@ class GiayPhepAttp extends Model
 
     public $timestamps = false; 
     protected $fillable = [
-        'maGiayPhepATTP', 'maCSKD ', 'maVanBan', 'ngayCap','thoiHan', 'ngayThuHoi', 'trangThaiGP'
+        'maGiayPhepATTP', 'maCSKD', 'maVanBan', 'ngayCap','thoiHan', 'ngayThuHoi', 'trangThai'
     ];
-    protected $primaryKey = 'maCSKD';
+    protected $primaryKey = 'maGiayPhepATTP';
     protected $table = 'giayphepattp';
+    protected $keyType = 'string';
 
     public function cosokinhdoanh(){
       return $this->belongsTo('App\Models\Cosokinhdoanh','maCSKD','maCSKD');

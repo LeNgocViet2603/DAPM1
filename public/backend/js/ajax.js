@@ -1,4 +1,14 @@
 $(document).ready(function () {
+  function getDateTime(year, month, day) {
+    if (day < 10) {
+      day = "0" + day;
+    }
+    if (month < 10) {
+      month = "0" + month;
+    }
+    const dateInApiFormat = year + "-" + month + "-" + day;
+    return dateInApiFormat;
+  }
   // console.log("ready");
   $.ajaxSetup({
     headers: {
@@ -17,16 +27,65 @@ $(document).ready(function () {
       $("#validation-date").html("");
     }
   });
+
+  $("body").on("change", "#time-start", function (e) {
+    const timeStart = $("#time-start").val();
+    const timeEnd = $("#time-end").val();
+    console.log("Change time", timeStart);
+    if (timeStart > timeEnd) {
+      $("#validation-date").html("Thời hạn không thể bé hơn ngày cấp");
+    } else {
+      $("#validation-date").html("");
+    }
+  });
   //Save data into database
   $("body").on("click", "#submit", function (event) {
     event.preventDefault();
-    var maGiayPhepATTP = $("#maGiayPhepATTP").val();
+    var maGiayPhepATTP = "GPKD" + $("#maCSKD").html();
+    const timeStart = $("#time-start").val();
     var timeEnd = $("#time-end").val();
     var trangThaiGP = 1;
     if (timeEnd === "") {
       $("#validation-date").html("Thời hạn không được bỏ trống");
-    } else {
-      console.log({ maGiayPhepATTP, timeEnd, trangThaiGP });
+    } else if (timeStart < timeEnd) {
+      console.log({ maGiayPhepATTP, timeEnd, timeStart });
+      console.log($("#maCSKD").html());
+      $.ajax({
+        url: store,
+        headers: {
+          "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+        type: "POST",
+        data: {
+          maGiayPhepATTP: maGiayPhepATTP,
+          maCSKD: $("#maCSKD").html(),
+          maVanBan: 1,
+          ngayCap: timeStart,
+          thoiHan: timeEnd,
+          trangThai: 1,
+        },
+        dataType: "json",
+        success: function (data) {
+          console.log("tadaa", data);
+          $("#companydata").trigger("reset");
+          $("#modal-id").modal("hide");
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title:
+              "Cập nhật giấy chứng nhận thành công" +
+              " " +
+              $("#nameProvider").html(),
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        },
+        error: function (data) {
+          console.log("Error......", location.href);
+        },
+      }).done(function (res) {
+        console.log("DONE", res);
+      });
 
       $.ajax({
         url: store,
@@ -35,29 +94,9 @@ $(document).ready(function () {
         },
         type: "PUT",
         data: {
-          maGiayPhepATTP: maGiayPhepATTP,
-          thoiHan: timeEnd,
-          trangThaiGP: trangThaiGP,
+          maCSKD: $("#maCSKD").html(),
+          trangThai: 2,
         },
-        dataType: "json",
-        success: function (data) {
-          console.log("tadaa", data);
-        },
-        error: function (data) {
-          $("#companydata").trigger("reset");
-          $("#modal-id").modal("hide");
-
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Cập nhật giấy chứng nhận thành công",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          console.log("Error......", location.href);
-        },
-      }).done(function (res) {
-        console.log("DONE", res);
       });
       location.href = location.href;
     }
@@ -69,25 +108,20 @@ $(document).ready(function () {
     const idButton = $("#submit").attr("data-button", id);
 
     $.get(store + "/" + id + "/edit", function (data) {
-      $("#modal-id").modal("show");
-      let trangThaiGP = data.giayphep.trangThaiGP;
-      $("#maCSKD").html(data.data.maCSKD);
-      $("#name").html(data.info.name);
-      $("#nameProvider").html(data.data.tenCSKD);
-      $("#address").html(data.data.diaChi);
-      $("#typeProduct").html(data.info.nameService);
-      $("#time-start").val(data.giayphep.ngayCap);
-      $("#time-end").val(data.giayphep.thoiHan);
-      $("#maGiayPhepATTP").val(data.giayphep.maGiayPhepATTP);
+      var today = new Date();
 
-      console.log("idButton", idButton);
-      if (trangThaiGP === 1) {
-        $("#submit").prop("disabled", true);
-        $("#submit").addClass("btn-dark");
-      } else {
-        $("#submit").prop("disabled", false);
-        $("#submit").removeClass("btn-dark");
-      }
+      console.log(
+        getDateTime(today.getFullYear(), today.getMonth() + 1, today.getDate())
+      );
+      $("#modal-id").modal("show");
+      $("#maCSKD").html(data.data[0].maCSKD);
+      $("#name").html(data.data[0].ho + " " + data.data[0].ten);
+      $("#nameProvider").html(data.data[0].tenCSKD);
+      $("#address").html(data.data[0].diaChi);
+      $("#time-start").val(
+        getDateTime(today.getFullYear(), today.getMonth() + 1, today.getDate())
+      );
+      $("#typeProduct").html(data.data[0].tenLoaiCSKD);
     });
   });
   console.log("ready");

@@ -21,7 +21,8 @@ Route::get('/admin', 'App\Http\Controllers\adminController@showDashboard');
 // router cap giay phep
 Route::get('/provider-license', 'App\Http\Controllers\providerLicenseController@showPageProviderLicense')->name('cosokinhdoanh.store');;
 Route::get('/provider-license/{id}/edit', 'App\Http\Controllers\providerLicenseController@update')->name('cosokinhdoanh.update');
-Route::put('/provider-license', 'App\Http\Controllers\providerLicenseController@Store')->name('cosokinhdoanh.store');
+Route::post('/provider-license', 'App\Http\Controllers\providerLicenseController@Store')->name('cosokinhdoanh.store');
+Route::put('/provider-license', 'App\Http\Controllers\providerLicenseController@UpdateStatus')->name('cosokinhdoanh.store');
 
 // router thu hoi giay phep
 

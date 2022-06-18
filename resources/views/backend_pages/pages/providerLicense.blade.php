@@ -21,9 +21,10 @@
                      <div class="provider-form__item">
                         <span>Lĩnh vực</span>
                         <select name="option" id="myselect">
-                           @foreach ($option as $key => $item)
-                           <option value="{{$item->maLoaiCSKD}}">{{$item->tenLoaiCSKD}}</option>
-                           @endforeach
+                           <option value=""> Tất cả </option>
+                           < @foreach ($option as $key=> $item)
+                              <option value="{{$item->maLoaiCSKD}}">{{$item->tenLoaiCSKD}}</option>
+                              @endforeach
                         </select>
 
                      </div>
