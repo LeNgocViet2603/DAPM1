@@ -58,7 +58,7 @@
                   <div class="col col-4 cbb-filter">
                      <div class="form-item">
                         <span>Quận/Huyện: </span>
-                        <select class="cbb-input" name="district" id="">
+                        <select class="cbb-input js-location" name="district" id="">
                               <option value="0">Tất cả</option>
                            @foreach ($data['district'] as $item)
                               <option value="{{$item->maQuanHuyen}}">{{$item->tenQuanHuyen}}</option>
@@ -70,14 +70,16 @@
                   <div class="col col-4 cbb-filter">
                      <div class="form-item">
                         <span>Phường/Xã: </span>
-                        <select class="cbb-input" name="commune" id="">
+                        <select class="cbb-input" name="ward" id="">
                               <option value="0">Tất cả</option>
-                           @foreach ($data['commune'] as $item)
+                           @foreach ($data['ward'] as $item)
                               <option value="{{$item->maPhuongXa}}">{{$item->tenPhuongXa}}</option>
                            @endforeach
                         </select>
                      </div>
                   </div>
+
+                  
 
                   <div class="col col-4 btn-filter">
                      <!-- <div style="display: flex; justify-content: flex-end;"> -->
@@ -144,6 +146,10 @@
                         <option value="50">50</option>
                         <option value="100">100</option>
                     </select>
+                </div>
+
+                <div class="report-btn">
+                     <a href="{{route('statistics.download')}}" class="btn btn-primary">Xuất PDF</a>
                 </div>
             </div>
             <!-- end paginate -->
