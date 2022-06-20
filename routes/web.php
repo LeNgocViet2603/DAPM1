@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\adminController;
+use App\Http\Controllers\manageLicenseController;
+use App\Http\Controllers\providerLicenseController;
 use App\Http\Controllers;
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,21 @@ use App\Http\Controllers;
 |
 */
 
+Route::get('/', 'App\Http\Controllers\adminController@showDashboard');
+Route::get('/admin', 'App\Http\Controllers\adminController@showDashboard');
+
+// router cap giay phep
+Route::get('/provider-license', 'App\Http\Controllers\providerLicenseController@showPageProviderLicense')->name('cosokinhdoanh.store');;
+Route::get('/provider-license/{id}/edit', 'App\Http\Controllers\providerLicenseController@update')->name('cosokinhdoanh.update');
+Route::post('/provider-license', 'App\Http\Controllers\providerLicenseController@Store')->name('cosokinhdoanh.store');
+Route::put('/provider-license', 'App\Http\Controllers\providerLicenseController@UpdateStatus')->name('cosokinhdoanh.store');
+
+
+// router thu hoi giay phep
+Route::get('/manage-license', 'App\Http\Controllers\manageLicenseController@showPageManageLicense')->name('kehoachthanhtra.block');
+Route::get('/manage-license/{id}/edit/{makehoach}', 'App\Http\Controllers\manageLicenseController@update')->name('ketquathanhtra.update');
+Route::put('/manage-license', 'App\Http\Controllers\manageLicenseController@Store')->name('ketquathanhtra.store');
+=======
 // Route::get('/', 'App\Http\Controllers\adminController@showDashboard');
 // Route::get('/admin', 'App\Http\Controllers\adminController@showDashboard');
 

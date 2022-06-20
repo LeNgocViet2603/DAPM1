@@ -15,5 +15,4 @@ class QuanHuyen extends Model
     ];
     protected $primaryKey = 'maQuanHuyen';
     protected $table = 'quanhuyen';
-
 }
