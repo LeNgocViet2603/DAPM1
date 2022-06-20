@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BaiDang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -42,9 +43,9 @@ class adminController extends Controller
 
     public function fetchPosts()
     {
-        $data = DB::table('baidang')
+        $data = DB::table('baidang')->select('*', 'baidang.ngayTao')
             ->join('nguoidung', 'baidang.maNguoiDang', '=', 'nguoidung.maNguoiDung')
-            ->join('chude', 'baidang.maChuDe', '=', 'chude.maChuDe')->get();
+            ->join('chude', 'baidang.maChuDe', '=', 'chude.maChuDe')->orderby('baidang.ngayTao', 'desc')->get();
         return $data;
     }
     public function addPost()
@@ -52,20 +53,39 @@ class adminController extends Controller
         $data = $this->loadCategory();
         return view('admin.pages.addPost', compact('data'));
     }
+    public function editPost(Request $request)
+    {
+        $image = $request->file('image');
+        $post = BaiDang::find($request->id);
+
+        $post->maChuDe = $request->category;
+        $post->tieuDe = $request->title;
+        $post->slug = $request->slug;
+        $post->noiDung  = $request->content;
+        if (isset($image)) {
+            $data['anhBia'] = $image->getClientOriginalName();
+            $image->move('images/post-avatar', $data['anhBia']);
+        }
+        $post->save();
+        return Redirect::to('/admin-page/posts');
+    }
 
 
     public function handleAddPost(Request $request)
     {
         $data = array();
         $image = $request->file('image');
-        echo $image;
+
         $data['maChuDe'] = $request->category;
         $data['tieuDe'] = $request->title;
+        $data['slug'] = $request->slug;
         $data['noiDung'] = $request->content;
         $data['maNguoiDang'] = 1;
         $data['trangThai'] = 1;
-        $data['anhBia'] = $image->getClientOriginalName();
-        $image->move('images/post-avatar', $data['anhBia']);
+        if (isset($image)) {
+            $data['anhBia'] = $image->getClientOriginalName();
+            $image->move('images/post-avatar', $data['anhBia']);
+        }
 
         $result = DB::table('baidang')->insert($data);
         if ($result) {

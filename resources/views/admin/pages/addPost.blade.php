@@ -1,6 +1,6 @@
 @extends('admin.master_layout')
 @section('title')
-<title>Thêm bài đăng</title>
+<title>Bài đăng</title>
 @endsection
 @section('content')
 <div class="content-wrapper">
@@ -28,14 +28,31 @@
     <div class="container-fluid">
       <form method="post" enctype="multipart/form-data">
         @csrf
+        @if(isset($post))
+        @method('PUT')
+        @endif
         <div class="row">
           <div class="col-9">
             <div class="d-flex flex-column">
               <label for="">Tiêu đề</label>
-              <input type="text" name="title" value="<?php if (isset($post)) echo $post->tieuDe;
-                                                      else echo ''; ?>">
+              <input type="text" name="title" id="title" value="<?php if (isset($post)) echo $post->tieuDe;
+                                                                else echo ''; ?>" required>
+
+
+              <label for="slug">Slug</label>
+              <div class="d-flex">
+                <input type="text" required style="flex: 1" name="slug" id='slug' value="<?php if (isset($post)) echo $post->slug;
+                                                                                          else echo ''; ?>">
+                <button id="create-slug"> Tạo </button>
+              </div>
               <label for="">Nội dung</label>
               <textarea name="content" id="contentPost" cols="30" rows="10"></textarea>
+              <textarea style="display: none;" id="content-draft" cols="30" rows="10">
+                @if(isset($post))
+                   {{$post->noiDung}}
+               @endif
+              </textarea>
+
             </div>
           </div>
           <div class="col-3">
@@ -47,7 +64,7 @@
               <p> <b>Chọn danh mục</b> </p>
               <div class="form-check">
                 @foreach($data as $key => $row)
-                <input class="form-check-input" type="radio" name="category" value="{{$row->maChuDe}}" id="{{$row->tenChuDe.$key}}">
+                <input class="form-check-input" type="radio" name="category" value="{{$row->maChuDe}}" id="{{$row->tenChuDe.$key}}" required <?php if (isset($post)) if ($row->maChuDe == $post->maChuDe) echo 'checked' ?>>
                 <label class="form-check-label" for="{{$row->tenChuDe.$key}}">
                   {{$row->tenChuDe}}
                 </label><br>

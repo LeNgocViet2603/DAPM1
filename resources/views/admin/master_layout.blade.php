@@ -99,6 +99,7 @@
   <script src="{{asset('admin/js/adminlte.js')}}"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="{{asset('admin/js/demo.js')}}"></script>
+  <script src="{{asset('admin/js/app.js')}}"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="{{asset('admin/js/pages/dashboard.js')}}"></script>
   <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
@@ -111,6 +112,12 @@
       filebrowserImageUploadUrl: "{{ route('ckfinder_connector') }}?command=QuickUpload&type=Images",
       filebrowserFlashUploadUrl: "{{ route('ckfinder_connector') }}?command=QuickUpload&type=Flash",
     });
+    const contentValue = document.querySelector("#content-draft");
+    console.log(contentValue.value)
+
+    if (contentValue) {
+      CKEDITOR.instances.contentPost.setData(contentValue.value);
+    }
   </script>
   @include('ckfinder::setup')
 </body>

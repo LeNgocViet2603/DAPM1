@@ -36,7 +36,7 @@ Route::prefix('admin-page')->group(function () {
         'uses' => 'adminController@posts'
     ]);
     Route::get('/posts/{id}', [
-        'as' => 'admin.posts',
+        'as' => 'admin.posts.id',
         'uses' => 'adminController@postDetail'
     ]);
     Route::get('/add-post', [
@@ -46,6 +46,10 @@ Route::prefix('admin-page')->group(function () {
     Route::post('/add-post', [
         'as' => 'admin.addPost',
         'uses' => 'adminController@handleAddPost'
+    ]);
+    Route::put('/posts/{id}', [
+        'as' => 'admin.editPost',
+        'uses' => 'adminController@editPost'
     ]);
 
     // Route::get('/dashboard', [
