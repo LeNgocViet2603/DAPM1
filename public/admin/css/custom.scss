@@ -1,0 +1,84 @@
+.search_post{
+    input{
+        border-radius: 5px;
+        padding: 5px;
+    }
+    button{
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        padding:5px;
+    }
+}
+.btn-addpost{
+  background-color: initial;
+  background-image: linear-gradient(-180deg, #00D775, #00BD68);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,-apple-system,system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+  height: 44px;
+  line-height: 44px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 150px;
+  z-index: 9;
+  border: 0;
+  &:hover {
+    background: #00bd68;
+  }
+}
+
+
+.sub{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex: auto;
+    ul{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style-type: none;
+        padding: 0;
+        li{
+            padding: 10px 5px;
+        }
+        a{
+            text-decoration: none;
+            font-size: 16px;
+            color: #333;
+            &:hover{
+                color: blue;
+            }
+        }
+    }
+    form{
+        text-align: end;
+        margin-left: auto;
+    }
+}
+
+.chooseOperator{
+    padding: 5px;
+    button{
+        outline: none;
+        border-radius: 5px;
+        background-color: blue;
+    }
+}
+.filter{
+    display: flex;
+    align-items: center;
+}

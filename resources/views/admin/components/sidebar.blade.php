@@ -686,19 +686,20 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{asset('admin/index.html')}}" class="nav-link active">
+                <a href="{{asset('public/admin/index.html')}}" class="nav-link active">
+
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v1</p>
                 </a>
               </li>
-              <!-- <li class="nav-item">
-                <a href="{{asset('admin/index2.html')}}" class="nav-link">
+              <li class="nav-item">
+                <a href="{{asset('public/admin/index2.html')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v2</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{asset('admin/index3.html')}}" class="nav-link">
+                <a href="{{asset('public/admin/index3.html')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v3</p>
                 </a>
@@ -709,7 +710,7 @@
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Widgets
+                Quản lí bài đăng
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
@@ -1307,6 +1308,7 @@
               <p>Informational</p>
             </a>
           </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

@@ -74,6 +74,22 @@ Route::prefix('admin-page')->group(function () {
         'as' => 'admin.index',
         'uses' => 'adminController@index'
     ]);
+    Route::get('/posts', [
+        'as' => 'admin.posts',
+        'uses' => 'adminController@posts'
+    ]);
+    Route::get('/posts/{id}', [
+        'as' => 'admin.posts',
+        'uses' => 'adminController@postDetail'
+    ]);
+    Route::get('/add-post', [
+        'as' => 'admin.addPost',
+        'uses' => 'adminController@addPost'
+    ]);
+    Route::post('/add-post', [
+        'as' => 'admin.addPost',
+        'uses' => 'adminController@handleAddPost'
+    ]);
 
     // Route::get('/dashboard', [
     //     'as' => 'admin.dashboard',
@@ -91,3 +107,10 @@ Route::prefix('admin-page')->group(function () {
     ]);
 });
 // end admin routes
+
+Route::any('/ckfinder/connector', '\CKSource\CKFinderBridge\Controller\CKFinderController@requestAction')
+    ->name('ckfinder_connector');
+
+Route::any('/ckfinder/browser', '\CKSource\CKFinderBridge\Controller\CKFinderController@browserAction')
+    ->name('ckfinder_browser');
+
