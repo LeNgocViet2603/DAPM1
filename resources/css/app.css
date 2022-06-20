@@ -6,6 +6,14 @@
     .border-logo {
         border-radius: 0% 100% 21% 79% / 100% 0% 100% 0%;
     }
+    .text-overflow {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+    }
 }
 
 .banner-slider.slick-slider .slick-track,

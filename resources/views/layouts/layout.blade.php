@@ -13,9 +13,10 @@
 <body>
     <div>
         @include('components.header')
-        <main class="container mx-auto">
+        <main class="pb-20 min-h-screen">
             @yield('content')
         </main>
+        @include('components.footer')
     </div>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

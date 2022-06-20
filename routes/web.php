@@ -26,6 +26,11 @@ Route::prefix('')->group(function () {
         'as' => 'login',
         'uses' => 'LoginController@index'
     ]);
+
+    Route::post('/login', [
+        'as' => 'login',
+        'uses' => 'LoginController@authentication'
+    ]);
     Route::get('/register', [
         'as' => 'register',
         'uses' => 'RegisterController@index'
@@ -36,10 +41,12 @@ Route::prefix('')->group(function () {
         'uses' => 'RegisterController@register'
     ]);
 
-    Route::post('/login', [
-        'as' => 'login',
-        'uses' => 'LoginController@authentication'
+    Route::get('/search', [
+        'as' => 'register',
+        'uses' => 'HomeController@handleSearch'
     ]);
+
+    Route::get('/{postId}', 'HomeController@postDetail');
 });
 // end user routes
 
