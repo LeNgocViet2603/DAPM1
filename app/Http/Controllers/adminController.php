@@ -94,4 +94,9 @@ class adminController extends Controller
             return Redirect::to('/admin-page/add-post');
         }
     }
+    // public function ShowDashboard()
+    // {
+    //     return view('admin.pages.dashboard');
+    // }
+
 }

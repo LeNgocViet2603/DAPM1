@@ -11,9 +11,9 @@ class BaiDang extends Model
 
     public $timestamps = false;
     protected $fillable = [
-        'maBaiDang', 'maChuDe', 'anhBia', 'tieuDe', 'noiDung', 'dinhKem', 'maNguoiDang', 'ngayTao', 'ngayCapNhat', 'trangThai'
+        'maBaiDang', 'maChuDe', 'anhBia', 'tieuDe', 'slug', 'noiDung', 'dinhKem', 'maNguoiDang', 'ngayTao', 'ngayCapNhat', 'trangThai'
     ];
-    protected $primaryKey = 'maBaiDang';
+    protected $primaryKey = 'slug';
     protected $table = 'baidang';
 
     public function nguoidung()
