@@ -1,3 +1,9 @@
+
+@extends('backend_pages.master_layout')
+@section('title')
+<title>Dashboard</title>
+@endsection
+=======
 @extends('admin.master_layout')
 @section('title')
 <title>Dashboard</title>
@@ -222,7 +228,6 @@
                     <li>
                       <a href="#">
                         <img class="contacts-list-img" src="{{asset('admin/img/user1-128x128.jpg')}}" alt="User Avatar">
-
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
                             Count Dracula
@@ -237,7 +242,6 @@
                     <li>
                       <a href="#">
                         <img class="contacts-list-img" src="{{asset('admin/img/user7-128x128.jpg')}}" alt="User Avatar">
-
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
                             Sarah Doe
@@ -252,7 +256,6 @@
                     <li>
                       <a href="#">
                         <img class="contacts-list-img" src="{{asset('admin/img/user3-128x128.jpg')}}" alt="User Avatar">
-
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
                             Nadia Jolie
@@ -267,7 +270,6 @@
                     <li>
                       <a href="#">
                         <img class="contacts-list-img" src="{{asset('admin/img/user5-128x128.jpg')}}" alt="User Avatar">
-
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
                             Nora S. Vans
@@ -282,7 +284,6 @@
                     <li>
                       <a href="#">
                         <img class="contacts-list-img" src="{{asset('admin/img/user6-128x128.jpg')}}" alt="User Avatar">
-
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
                             John K.
@@ -296,8 +297,8 @@
                     <!-- End Contact Item -->
                     <li>
                       <a href="#">
-                        <img class="contacts-list-img" src="{{asset('admin/img/user8-128x128.jpg')}}" alt="User Avatar">
 
+                        <img class="contacts-list-img" src="{{asset('admin/img/user8-128x128.jpg')}}" alt="User Avatar">
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
                             Kenneth M.

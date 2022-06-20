@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class PhuongXa extends Model
 {
     use HasFactory;
-
     public $timestamps = false;
     protected $fillable = [
         'maPhuongXa', 'tenPhuongXa', 'maQuanHuyen'
@@ -19,5 +18,4 @@ class PhuongXa extends Model
     public function quanhuyen(){
       return $this->belongsTo('App\Models\QuanHuyen','maQuanHuyen','maQuanHuyen');
    }
-
 }
