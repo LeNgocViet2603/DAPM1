@@ -31,6 +31,6 @@ class HomeController extends Controller
 
     public function postDetail()
     {
-        return view('pages.postDetail');
+        return view('pages.post-detail');
     }
 }

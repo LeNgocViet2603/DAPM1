@@ -46,7 +46,7 @@ Route::prefix('')->group(function () {
         'uses' => 'HomeController@handleSearch'
     ]);
 
-    Route::get('/{postId}', 'HomeController@postDetail');
+    Route::get('/posts/{postId}', 'HomeController@postDetail');
 });
 // end user routes
 
