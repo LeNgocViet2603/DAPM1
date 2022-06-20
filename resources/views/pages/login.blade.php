@@ -13,7 +13,7 @@
     </span>
     <a class="block text-xs px-3 py-2 font-bold underline decoration-double underline-offset-2 cursor-pointer"> ĐĂNG NHẬP </a>
 </div>
-<div class="flex min-h-[600px] p-20 py-12 justify-between gap-4">
+<div class="flex min-h-[600px] p-20 py-12 justify-between gap-4 container mx-auto">
     <div class="w-fit">
         <h1 class="text-green-600 font-bold text-center mb-7"> Ban Quản Lý An Toàn Thực Phẩm </h1>
         <?php

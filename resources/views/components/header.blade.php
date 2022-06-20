@@ -2,7 +2,7 @@
     <div class="container mx-auto">
         <!-- main-header -->
         <div class="relative flex h-[8rem] items-center">
-            <a href="" class="bg-green-600 block w-[475px] border-logo h-full z-10">
+            <a href="/" class="bg-green-600 block w-[475px] border-logo h-full z-10">
                 <img src="https://antoanthucpham.danang.gov.vn/image/company_logo?img_id=10834&t=1655276002575" alt="logo" class="object-cover">
             </a>
             <div class="banner-slider h-full flex-1 overflow-hidden -ml-24">
@@ -27,9 +27,15 @@
             <?php
             } else { ?>
                 <div class="absolute bottom-0 right-0 bg-green-500/80 space-x-2 flex items-center">
-                    <button class=" px-3 py-1 text-slate-900 font-bold text-sm"> Đăng Ký</button>
+                    <button class=" px-3 py-1 text-slate-900 font-bold text-sm">
+                        <a href="{{route('register')}}">
+                            Đăng Ký
+                        </a>
+                    </button>
                     <span class="w-[1px] h-5 block bg-slate-900"></span>
-                    <button class=" px-3 py-1 text-slate-900 font-bold text-sm"> Đăng Nhập</button>
+                    <button class=" px-3 py-1 text-slate-900 font-bold text-sm"> <a href="{{route('login')}}">
+                            Đăng Nhập
+                        </a></button>
                 </div>
             <?php
             }
@@ -38,7 +44,9 @@
         <!-- menu-header -->
         <ul class="flex text-sm items-center">
             <li class="flex-1 px-3 py-3 text-white font-bold uppercase cursor-pointer hover:bg-green-700 text-center">
-                trang chủ
+                <a href="/">
+                    trang chủ
+                </a>
             </li>
             <li class="flex-1 px-3 py-3 text-white font-bold uppercase cursor-pointer hover:bg-green-700 text-center">
                 giới thiệu

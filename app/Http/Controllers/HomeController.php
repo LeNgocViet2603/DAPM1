@@ -29,8 +29,9 @@ class HomeController extends Controller
         }
     }
 
-    public function postDetail()
+    public function postDetail(Request $request)
     {
-        return view('pages.post-detail');
+        $post = BaiDang::find($request->slug);
+        return view('pages.post-detail', compact('post'));
     }
 }

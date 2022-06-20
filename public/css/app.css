@@ -574,11 +574,11 @@ video {
 .right-0 {
   right: 0px;
 }
-.top-\[180px\] {
-  top: 180px;
-}
 .top-\[172px\] {
   top: 172px;
+}
+.top-\[180px\] {
+  top: 180px;
 }
 .left-0 {
   left: 0px;
@@ -644,6 +644,9 @@ video {
 .mb-7 {
   margin-bottom: 1.75rem;
 }
+.mb-8 {
+  margin-bottom: 2rem;
+}
 .ml-auto {
   margin-left: auto;
 }
@@ -670,9 +673,6 @@ video {
 }
 .ml-2 {
   margin-left: 0.5rem;
-}
-.mr-0 {
-  margin-right: 0px;
 }
 .block {
   display: block;
@@ -724,11 +724,11 @@ video {
 .h-\[400px\] {
   height: 400px;
 }
-.h-20 {
-  height: 5rem;
-}
 .h-24 {
   height: 6rem;
+}
+.h-28 {
+  height: 7rem;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -738,6 +738,9 @@ video {
 }
 .min-h-\[300px\] {
   min-height: 300px;
+}
+.min-h-\[250px\] {
+  min-height: 250px;
 }
 .w-\[475px\] {
   width: 475px;
@@ -849,11 +852,6 @@ video {
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
-.space-y-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
-}
 .overflow-hidden {
   overflow: hidden;
 }
@@ -869,14 +867,20 @@ video {
 .border-0 {
   border-width: 0px;
 }
-.border-b-\[3px\] {
-  border-bottom-width: 3px;
-}
 .border-b-\[1px\] {
   border-bottom-width: 1px;
 }
+.border-b-\[3px\] {
+  border-bottom-width: 3px;
+}
 .border-b-2 {
   border-bottom-width: 2px;
+}
+.border-t-8 {
+  border-top-width: 8px;
+}
+.border-slate-900\/20 {
+  border-color: rgb(15 23 42 / 0.2);
 }
 .border-green-600 {
   --tw-border-opacity: 1;
@@ -889,8 +893,12 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(15 23 42 / var(--tw-border-opacity));
 }
-.border-slate-900\/20 {
-  border-color: rgb(15 23 42 / 0.2);
+.border-green-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(21 128 61 / var(--tw-border-opacity));
+}
+.border-slate-900\/10 {
+  border-color: rgb(15 23 42 / 0.1);
 }
 .border-slate-900\/30 {
   border-color: rgb(15 23 42 / 0.3);
@@ -969,10 +977,6 @@ video {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -980,6 +984,10 @@ video {
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 .py-12 {
   padding-top: 3rem;
@@ -1009,6 +1017,12 @@ video {
 .pb-2 {
   padding-bottom: 0.5rem;
 }
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+.pt-10 {
+  padding-top: 2.5rem;
+}
 .pb-3 {
   padding-bottom: 0.75rem;
 }
@@ -1017,15 +1031,6 @@ video {
 }
 .pb-4 {
   padding-bottom: 1rem;
-}
-.pb-8 {
-  padding-bottom: 2rem;
-}
-.pb-10 {
-  padding-bottom: 2.5rem;
-}
-.pt-10 {
-  padding-top: 2.5rem;
 }
 .text-center {
   text-align: center;
@@ -1048,6 +1053,9 @@ video {
 .font-bold {
   font-weight: 700;
 }
+.font-normal {
+  font-weight: 400;
+}
 .uppercase {
   text-transform: uppercase;
 }
@@ -1069,10 +1077,6 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-.text-green-600 {
-  --tw-text-opacity: 1;
-  color: rgb(22 163 74 / var(--tw-text-opacity));
-}
 .text-green-500 {
   --tw-text-opacity: 1;
   color: rgb(34 197 94 / var(--tw-text-opacity));
@@ -1080,6 +1084,10 @@ video {
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
 }
 .text-teal-600 {
   --tw-text-opacity: 1;
@@ -1096,14 +1104,6 @@ video {
 .text-pink-500 {
   --tw-text-opacity: 1;
   color: rgb(236 72 153 / var(--tw-text-opacity));
-}
-.text-pink-300 {
-  --tw-text-opacity: 1;
-  color: rgb(249 168 212 / var(--tw-text-opacity));
-}
-.text-teal-900 {
-  --tw-text-opacity: 1;
-  color: rgb(19 78 74 / var(--tw-text-opacity));
 }
 .text-teal-800 {
   --tw-text-opacity: 1;
@@ -1167,6 +1167,16 @@ video {
 .banner-slider.slick-slider .slick-track,
 .slick-list {
     height: 100%;
+}
+
+.post-content em {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.post-content img {
+    margin: 0 auto;
 }
 
 .focus-within\:ring-\[3px\]:focus-within {

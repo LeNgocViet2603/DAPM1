@@ -42,11 +42,11 @@ Route::prefix('')->group(function () {
     ]);
 
     Route::get('/search', [
-        'as' => 'register',
+        'as' => 'search',
         'uses' => 'HomeController@handleSearch'
     ]);
 
-    Route::get('/posts/{postId}', 'HomeController@postDetail');
+    Route::get('/posts/{slug}', 'HomeController@postDetail');
 });
 // end user routes
 

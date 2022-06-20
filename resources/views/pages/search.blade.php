@@ -4,15 +4,7 @@
 @endsection
 
 @section('content')
-<div class="sticky top-[172px] z-50 bg-white border-b-[1px] border-slate-900/20 ">
-    <div class="container flex justify-between py-2 text-green-500 px-4 mx-auto">
-        <p> Thứ 4, 15/6/2022 </p>
-        <div class="ring-green-600 ring-2 text-black focus-within:ring-[3px] ">
-            <input type="text" class="outline-none px-2">
-            <button></button>
-        </div>
-    </div>
-</div>
+@include('components.search-bar')
 <div class="grid grid-cols-10 space-x-8 p-4 container mx-auto">
     <div class="col-span-10 lg:col-span-7 pt-2 space-y-4">
         <div class="min-h-[300px] border-[1px] border-slate-900/30 shadow-md px-4 pb-10">
@@ -25,12 +17,12 @@
             @else
             <div class="py-4 space-y-2 ">
                 @foreach($posts as $post)
-                <div class="flex min-h-24 gap-4 hover:bg-gray-400/40 cursor-pointer p-2 shadow-md">
-                    <div class="h-24 w-[10rem]">
+                <a class="flex min-h-24 gap-4 hover:bg-gray-400/40 cursor-pointer p-2 shadow-md" href="{{URL::to('/posts/'.$post->slug)}}">
+                    <div class="h-28 w-[10rem]">
                         @if(isset($post->anhBia))
-                        <img src="{{asset('images/.$post->anhBia')}}" alt="">
+                        <img src="{{asset('images/'.$post->anhBia)}}" alt="" class="h-full object-cover w-full">
                         @else
-                        <img src="{{asset('images/AN-TOAN-THUC-PHAM-LA-GI.jpg')}}" alt="">
+                        <img src="{{asset('images/post-avatar/default-post-avatar.jpg')}}" alt="" class="h-full object-cover w-full">
                         @endif
                     </div>
                     <div class="flex-1 space-y-2">
@@ -69,7 +61,8 @@
                         </h1>
                         <p class="text-overflow">
                             <?php
-                            $content = preg_split('/\s/', $post->noiDung);
+                            $content = str_replace(array('<em>', '</em>', '<p>', '</p>', '<strong>', '</strong>', '<a>', '</a>', '<h1>', '</h1>'), '', $post->noiDung);
+                            $content = preg_split('/\s/', $content);
                             $unicode = array(
                                 'a' => 'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
                                 'd' => 'đ',
@@ -90,6 +83,7 @@
                                 $text = preg_replace("/($uni)/i", $nonUnicode, $text);
                                 $post->noiDung = preg_replace("/($uni)/i", $nonUnicode, $post->noiDung);
                             }
+                            $post->noiDung = str_replace(array('<em>', '</em>', '<p>', '</p>', '<strong>', '</strong>', '<a>', '</a>', '<h1>', '</h1>'), '', $post->noiDung);
                             $words = preg_split('/\s/', strtolower($post->noiDung));
                             $searchWords = explode(' ', strtolower($text));
                             $showKeyWords = $words;
@@ -111,14 +105,14 @@
                                 if ($showKeyWords[$key] == '*true*') {
                                     echo $word . ' ';
                                 } else if ($key > 1 && $showKeyWords[$key - 1] == '*true*' && $showKeyWords[$key] != '*true*') {
-                                    echo '... ';
+                                    echo '...';
                                 }
                             }
                             ?>
                         </p>
                         <small class="block text-right text-teal-800">{{$post->ngayTao}}</small>
                     </div>
-                </div>
+                </a>
                 @endforeach
             </div>
             @endif

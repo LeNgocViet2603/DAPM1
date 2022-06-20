@@ -20,3 +20,13 @@
 .slick-list {
     height: 100%;
 }
+
+.post-content em {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.post-content img {
+    margin: 0 auto;
+}

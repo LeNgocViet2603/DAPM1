@@ -55,22 +55,22 @@
             <span class="font-bold"> Trung tâm kiểm nghiệm </span>
         </div>
     </div>
-    <a class="block" href="/bantinattp">
+    <a class="block" href="/">
         <img src="{{asset('images/bantinattp.png')}}" alt="" class="w-full">
     </a>
-    <a class="block" href="/bantinattp">
+    <a class="block" href="/">
         <img src="{{asset('images/ddn-min.png')}}" alt="" class="w-full">
     </a>
-    <a class="block" href="/bantinattp">
+    <a class="block" href="/">
         <img src="{{asset('images/dvc-t7-min.jpg')}}" alt="" class="w-full">
     </a>
-    <a class="block" href="/bantinattp">
+    <a class="block" href="/">
         <img src="{{asset('images/covic-19.jpg')}}" alt="" class="w-full">
     </a>
-    <a class="block" href="/bantinattp">
+    <a class="block" href="/">
         <img src="{{asset('images/logo-txngtp.jpg')}}" alt="" class="w-full">
     </a>
-    <a class="block" href="/bantinattp">
+    <a class="block" href="/">
         <img src="{{asset('images/kqgq-tthc.png')}}" alt="" class="w-full">
     </a>
 

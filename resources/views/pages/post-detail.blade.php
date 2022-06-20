@@ -1,17 +1,24 @@
 @extends('layouts.layout')
 @section('title')
-<title>Trang Chủ</title>
+<title>{{$post->tieuDe}}</title>
 @endsection
 
 @section('content')
-<div class="sticky top-[172px] z-50 bg-white border-b-[1px] border-slate-900/20 ">
-    <div class="container flex justify-between py-2 text-green-500 px-4 mx-auto">
-        <p> Thứ 4, 20/6/2022 </p>
-        <div class="ring-green-600 ring-2 text-black focus-within:ring-[3px] ">
-            <input type="text" class="outline-none px-2">
-            <button></button>
+@include('components.search-bar')
+
+<div class="grid grid-cols-10 space-x-8 p-4 container mx-auto">
+    <!-- main content -->
+    <div class="col-span-10 lg:col-span-7 space-y-4 border-t-8 border-green-700">
+        <div class="min-h-[300px] border-[1px] border-slate-900/10 shadow-md p-4 pb-10">
+            <h1 class="font-bold text-teal-600 text-xl mb-8">{{$post->tieuDe}} <small class="text-slate-900 font-normal">({{$post->ngayTao}})</small></h1>
+            <div>
+                <div class="post-content space-y-4">
+                    <?php echo $post->noiDung ?>
+                </div>
+            </div>
         </div>
     </div>
+    @include('components.sidebar')
 </div>
 
 @endsection
