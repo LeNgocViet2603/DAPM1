@@ -8,12 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class LoaiCSKD extends Model
 {
     use HasFactory;
-
-    public $timestamps = false; 
+    public $timestamps = false;
     protected $fillable = [
         'maLoaiCSKD', 'tenLoaiCSKD'
     ];
     protected $primaryKey = 'maLoaiCSKD';
     protected $table = 'loaicskd';
-    
 }

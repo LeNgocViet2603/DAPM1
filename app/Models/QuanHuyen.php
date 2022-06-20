@@ -9,11 +9,10 @@ class QuanHuyen extends Model
 {
     use HasFactory;
 
-    public $timestamps = false; 
+    public $timestamps = false;
     protected $fillable = [
         'maQuanHuyen', 'tenQuanHuyen'
     ];
     protected $primaryKey = 'maQuanHuyen';
     protected $table = 'quanhuyen';
-    
 }

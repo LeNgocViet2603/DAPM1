@@ -1,7 +1,14 @@
+
 @extends('backend_pages.master_layout')
 @section('title')
 <title>Dashboard</title>
 @endsection
+=======
+@extends('admin.master_layout')
+@section('title')
+<title>Dashboard</title>
+@endsection
+
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -155,7 +162,7 @@
                       <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                     </div>
                     <!-- /.direct-chat-infos -->
-                    <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                    <img class="direct-chat-img" src="{{asset('admin/dist/img/user1-128x128.jpg')}}" alt="message user image">
                     <!-- /.direct-chat-img -->
                     <div class="direct-chat-text">
                       Is this template really for free? That's unbelievable!
@@ -171,7 +178,7 @@
                       <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
                     </div>
                     <!-- /.direct-chat-infos -->
-                    <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
+                    <img class="direct-chat-img" src="{{asset('admin/dist/img/user3-128x128.jpg')}}" alt="message user image">
                     <!-- /.direct-chat-img -->
                     <div class="direct-chat-text">
                       You better believe it!
@@ -187,7 +194,7 @@
                       <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
                     </div>
                     <!-- /.direct-chat-infos -->
-                    <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                    <img class="direct-chat-img" src="{{asset('admin/dist/img/user1-128x128.jpg')}}" alt="message user image">
                     <!-- /.direct-chat-img -->
                     <div class="direct-chat-text">
                       Working with AdminLTE on a great new app! Wanna join?
@@ -220,8 +227,7 @@
                   <ul class="contacts-list">
                     <li>
                       <a href="#">
-                        <img class="contacts-list-img" src="{{asset('public/backend/img/user1-128x128.jpg')}}" alt="User Avatar">
-
+                        <img class="contacts-list-img" src="{{asset('admin/img/user1-128x128.jpg')}}" alt="User Avatar">
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
                             Count Dracula
@@ -235,8 +241,7 @@
                     <!-- End Contact Item -->
                     <li>
                       <a href="#">
-                        <img class="contacts-list-img" src="{{asset('public/backend/img/user7-128x128.jpg')}}" alt="User Avatar">
-
+                        <img class="contacts-list-img" src="{{asset('admin/img/user7-128x128.jpg')}}" alt="User Avatar">
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
                             Sarah Doe
@@ -250,8 +255,7 @@
                     <!-- End Contact Item -->
                     <li>
                       <a href="#">
-                        <img class="contacts-list-img" src="{{asset('public/backend/img/user3-128x128.jpg')}}" alt="User Avatar">
-
+                        <img class="contacts-list-img" src="{{asset('admin/img/user3-128x128.jpg')}}" alt="User Avatar">
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
                             Nadia Jolie
@@ -265,8 +269,7 @@
                     <!-- End Contact Item -->
                     <li>
                       <a href="#">
-                        <img class="contacts-list-img" src="{{asset('public/backend/img/user5-128x128.jpg')}}" alt="User Avatar">
-
+                        <img class="contacts-list-img" src="{{asset('admin/img/user5-128x128.jpg')}}" alt="User Avatar">
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
                             Nora S. Vans
@@ -280,8 +283,7 @@
                     <!-- End Contact Item -->
                     <li>
                       <a href="#">
-                        <img class="contacts-list-img" src="{{asset('public/backend/img/user6-128x128.jpg')}}" alt="User Avatar">
-
+                        <img class="contacts-list-img" src="{{asset('admin/img/user6-128x128.jpg')}}" alt="User Avatar">
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
                             John K.
@@ -295,8 +297,8 @@
                     <!-- End Contact Item -->
                     <li>
                       <a href="#">
-                        <img class="contacts-list-img" src="{{asset('public/backend/img/user8-128x128.jpg')}}" alt="User Avatar">
 
+                        <img class="contacts-list-img" src="{{asset('admin/img/user8-128x128.jpg')}}" alt="User Avatar">
                         <div class="contacts-list-info">
                           <span class="contacts-list-name">
                             Kenneth M.

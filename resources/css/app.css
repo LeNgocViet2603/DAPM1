@@ -1,3 +1,4 @@
+
 .result-col-active {
     color: red;
 }
@@ -62,4 +63,36 @@
 .form-option {
     display: flex;
     justify-content: space-between;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .border-logo {
+        border-radius: 0% 100% 21% 79% / 100% 0% 100% 0%;
+    }
+    .text-overflow {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+    }
+}
+
+.banner-slider.slick-slider .slick-track,
+.slick-list {
+    height: 100%;
+}
+
+.post-content em {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.post-content img {
+    margin: 0 auto;
 }

@@ -15,5 +15,4 @@ class HinhAnh extends Model
     ];
     protected $primaryKey = 'maAnh';
     protected $table = 'hinhanh';
-    
 }
