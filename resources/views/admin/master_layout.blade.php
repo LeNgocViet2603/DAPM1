@@ -25,6 +25,11 @@
   <link rel="stylesheet" href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('admin/plugins/summernote/summernote-bs4.min.css')}}">
+
+  <!-- Statistics css -->
+  <link rel="stylesheet" href="{{asset('admin/css/statistic.css')}}">
+
+  <link rel="shortcut icon" type="image/png" href="https://toigingiuvedep.vn/wp-content/uploads/2021/05/hinh-anh-mat-cuoi-deu-nham-nho.png"/>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -98,5 +103,11 @@
 <script src="{{asset('admin/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('admin/js/pages/dashboard.js')}}"></script>
+<!-- chart canvas -->
+<script src="{{asset('admin/js/chartcanvas.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!--  -->
+<script src="{{asset('admin/plugins/vietnamlocalselector/vietnamlocalselector.js')}}"></script>
 </body>
 </html>
