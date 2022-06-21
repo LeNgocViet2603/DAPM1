@@ -14,8 +14,8 @@ class providerLicenseController extends Controller
     if ($request->option === null && $request->search === null) {
       $postlist = Cosokinhdoanh::join('dangkygpattp', 'cosokinhdoanh.maCSKD', '=', 'dangkygpattp.maCSKD')
         ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD')
-        ->where('dangkygpattp.trangThai', 2)
-        ->where('cosokinhdoanh.trangThai', 1)
+        ->where('dangkygpattp.trangThai', 1)
+        ->orWhere('cosokinhdoanh.trangThai', 1)
         ->get([
           'cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'dangkygpattp.maCSKD', 'loaicskd.tenLoaiCSKD',
           'dangkygpattp.trangThai'
@@ -23,8 +23,8 @@ class providerLicenseController extends Controller
     } else if ($request->search === null) {
       $postlist = Cosokinhdoanh::join('dangkygpattp', 'cosokinhdoanh.maCSKD', '=', 'dangkygpattp.maCSKD')
         ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD')
-        ->where('dangkygpattp.trangThai', 2)
-        ->where('cosokinhdoanh.trangThai', 1)
+        ->where('dangkygpattp.trangThai', 1)
+        ->orWhere('cosokinhdoanh.trangThai', 1)
         ->where('loaicskd.maLoaiCSKD', $request->option)
         ->get([
           'cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'dangkygpattp.maCSKD', 'loaicskd.tenLoaiCSKD',
@@ -33,8 +33,8 @@ class providerLicenseController extends Controller
     } else {
       $postlist = Cosokinhdoanh::join('dangkygpattp', 'cosokinhdoanh.maCSKD', '=', 'dangkygpattp.maCSKD')
         ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD')
-        ->where('dangkygpattp.trangThai', 2)
-        ->where('cosokinhdoanh.trangThai', 1)
+        ->where('dangkygpattp.trangThai', 1)
+        ->orWhere('cosokinhdoanh.trangThai', 1)
         ->where('loaicskd.maLoaiCSKD', $request->option)
         ->where('cosokinhdoanh.maCSKD', 'LIKE', "%$request->search%")
         ->get([

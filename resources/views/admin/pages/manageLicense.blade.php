@@ -52,13 +52,13 @@
                               <td>{{$item->maGiayPhepATTP}}</td>
                               <td>{{$item->ketQuaThanhTra}}</td>
                               <td>
-                                 <div class="action-wrapper">
+                                 <div class="action-wrapper" style="display: flex; align-items:center; gap: 4px;">
                                     <button type="button" class="btn btn-link btn-link-detail" id="block-detail" data-iddetail="{{$item->maCSKD}}" data-makehoach="{{$item->maKHTT}}" style="border:none;border-radius: 5px;background:#076aff; padding: 4px 8px; color: white;">Xem
                                        chi
                                        tiết</button>
 
                                     @if($item->trangThai == 2)
-                                    <p type="text" class="btn btn-danger" style="cursor: default">Đã thu hồi
+                                    <p type="text" class="btn btn-danger" style="cursor: default; margin: 0;padding: 4px 8px; border: none;">Đã thu hồi
                                     </p>
                                     @endif
                                  </div>

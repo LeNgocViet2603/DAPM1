@@ -120,6 +120,9 @@
   <script src="{{asset('admin/plugins/vietnamlocalselector/vietnamlocalselector.js')}}"></script>
 
   <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+  <script src="{{asset('backend/js/ajax.js')}}"></script>
   <script>
     CKEDITOR.replace('contentPost', {
       filebrowserBrowseUrl: "{{ route('ckfinder_browser') }}",

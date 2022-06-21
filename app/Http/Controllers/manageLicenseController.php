@@ -52,6 +52,10 @@ class manageLicenseController extends Controller
       ]
     );
 
+    $cskd = Cosokinhdoanh::find($request->maCSKD);
+    $cskd->trangThai = 1;
+    $cskd->save();
+
     return response()->json(
       [
         'success' => true,

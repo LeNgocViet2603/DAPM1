@@ -10,6 +10,10 @@
             <span id="tenCS"></span>
          </li>
          <li class="info-sup__list-item">
+            <p>Mã cơ sở: </p>
+            <span id="maCSKD"></span>
+         </li>
+         <li class="info-sup__list-item">
             <p>Địa chỉ: </p>
             <span id="diachi"></span>
          </li>
