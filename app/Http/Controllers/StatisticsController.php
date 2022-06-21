@@ -152,6 +152,7 @@ class StatisticsController extends Controller
 
     public function downloadPDF(Request $request) {
         $data = $this->statistical($request);
+        PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
         $pdf = PDF::loadView('admin.pages.report', compact('data'));
         return $pdf->stream('report.pdf');
         // return view('admin.pages.report', compact('data'));
