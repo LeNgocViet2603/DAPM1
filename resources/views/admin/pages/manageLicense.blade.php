@@ -1,4 +1,4 @@
-@extends('backend_pages.master_layout')
+@extends('admin.master_layout')
 @section('title')
 <title>Dashboard</title>
 @endsection
@@ -53,8 +53,7 @@
                               <td>{{$item->ketQuaThanhTra}}</td>
                               <td>
                                  <div class="action-wrapper">
-                                    <button type="button" class="btn btn-link btn-link-detail" id="block-detail"
-                                       data-iddetail="{{$item->maCSKD}}" data-makehoach="{{$item->maKHTT}}">Xem
+                                    <button type="button" class="btn btn-link btn-link-detail" id="block-detail" data-iddetail="{{$item->maCSKD}}" data-makehoach="{{$item->maKHTT}}">Xem
                                        chi
                                        tiết</button>
 
@@ -74,7 +73,7 @@
          </div>
 
          <div class="col col-5" id="info-premises" style="display: none;">
-            @include('backend_pages/pages/components/infoPremises')
+            @include('admin/pages/components/infoPremises')
          </div>
          @endif
       </div>

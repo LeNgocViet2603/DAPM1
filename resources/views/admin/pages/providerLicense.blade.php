@@ -1,4 +1,4 @@
-@extends('backend_pages.master_layout')
+@extends('admin.master_layout')
 @section('title')
 <title>Dashboard</title>
 @endsection
@@ -88,7 +88,7 @@
          @endif
       </div>
 </div>
-@include('backend_pages/pages/components/modal')
+@include('admin/pages/components/modal')
 </section>
 <!-- /.content -->
 </div>

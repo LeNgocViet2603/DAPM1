@@ -9,44 +9,50 @@ use Illuminate\Http\Request;
 
 class providerLicenseController extends Controller
 {
-    public function showPageProviderLicense(Request $request)
-    {
-      if($request->option === null && $request->search === null) {
-        $postlist = Cosokinhdoanh::join('dangkygpattp','cosokinhdoanh.maCSKD','=', 'dangkygpattp.maCSKD')
-        ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD' )
-        ->where('dangkygpattp.trangThai',2)
-        ->where('cosokinhdoanh.trangThai',1)
-        ->get(['cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'dangkygpattp.maCSKD','loaicskd.tenLoaiCSKD',
-        'dangkygpattp.trangThai']);
-      } else if( $request->search === null){
-        $postlist = Cosokinhdoanh::join('dangkygpattp','cosokinhdoanh.maCSKD','=', 'dangkygpattp.maCSKD')
-        ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD' )
-        ->where('dangkygpattp.trangThai',2)
-        ->where('cosokinhdoanh.trangThai',1)
+  public function showPageProviderLicense(Request $request)
+  {
+    if ($request->option === null && $request->search === null) {
+      $postlist = Cosokinhdoanh::join('dangkygpattp', 'cosokinhdoanh.maCSKD', '=', 'dangkygpattp.maCSKD')
+        ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD')
+        ->where('dangkygpattp.trangThai', 2)
+        ->where('cosokinhdoanh.trangThai', 1)
+        ->get([
+          'cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'dangkygpattp.maCSKD', 'loaicskd.tenLoaiCSKD',
+          'dangkygpattp.trangThai'
+        ]);
+    } else if ($request->search === null) {
+      $postlist = Cosokinhdoanh::join('dangkygpattp', 'cosokinhdoanh.maCSKD', '=', 'dangkygpattp.maCSKD')
+        ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD')
+        ->where('dangkygpattp.trangThai', 2)
+        ->where('cosokinhdoanh.trangThai', 1)
         ->where('loaicskd.maLoaiCSKD', $request->option)
-        ->get(['cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'dangkygpattp.maCSKD','loaicskd.tenLoaiCSKD',
-        'dangkygpattp.trangThai']);
-      } else {
-        $postlist = Cosokinhdoanh::join('dangkygpattp','cosokinhdoanh.maCSKD','=', 'dangkygpattp.maCSKD')
-        ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD' )
-        ->where('dangkygpattp.trangThai',2)
-        ->where('cosokinhdoanh.trangThai',1)
+        ->get([
+          'cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'dangkygpattp.maCSKD', 'loaicskd.tenLoaiCSKD',
+          'dangkygpattp.trangThai'
+        ]);
+    } else {
+      $postlist = Cosokinhdoanh::join('dangkygpattp', 'cosokinhdoanh.maCSKD', '=', 'dangkygpattp.maCSKD')
+        ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD')
+        ->where('dangkygpattp.trangThai', 2)
+        ->where('cosokinhdoanh.trangThai', 1)
         ->where('loaicskd.maLoaiCSKD', $request->option)
-        ->where('cosokinhdoanh.maCSKD','LIKE', "%$request->search%")
-        ->get(['cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'dangkygpattp.maCSKD','loaicskd.tenLoaiCSKD',
-        'dangkygpattp.trangThai']);
-      }
-
-      $option = LoaiCSKD::all();
-      return view('backend_pages/pages/providerLicense')->with(compact('postlist'))
-      ->with(compact('option'));
-      return response()->json([ 'postlist'=> $postlist]);
+        ->where('cosokinhdoanh.maCSKD', 'LIKE', "%$request->search%")
+        ->get([
+          'cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'dangkygpattp.maCSKD', 'loaicskd.tenLoaiCSKD',
+          'dangkygpattp.trangThai'
+        ]);
     }
-    public function Store(Request $request)
+
+    $option = LoaiCSKD::all();
+    return view('admin/pages/providerLicense')->with(compact('postlist'))
+      ->with(compact('option'));
+    return response()->json(['postlist' => $postlist]);
+  }
+  public function Store(Request $request)
   {
     GiayPhepAttp::updateOrCreate(
       [
-        'maGiayPhepATTP' => $request->maGiayPhepATTP 
+        'maGiayPhepATTP' => $request->maGiayPhepATTP
       ],
       [
         'maCSKD' => $request->maCSKD,
@@ -65,7 +71,8 @@ class providerLicenseController extends Controller
     );
   }
 
-  public function UpdateStatus(Request $request) {
+  public function UpdateStatus(Request $request)
+  {
     Cosokinhdoanh::updateOrCreate(
       [
         'maCSKD' => $request->maCSKD
@@ -82,18 +89,20 @@ class providerLicenseController extends Controller
       ]
     );
   }
-  
-    public function update($id)
-    {
-      $coso = Cosokinhdoanh::join('dangkygpattp','cosokinhdoanh.maCSKD','=', 'dangkygpattp.maCSKD')
-      ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD' )
+
+  public function update($id)
+  {
+    $coso = Cosokinhdoanh::join('dangkygpattp', 'cosokinhdoanh.maCSKD', '=', 'dangkygpattp.maCSKD')
+      ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD')
       ->join('nguoidung', 'nguoidung.maNguoiDung', '=', 'cosokinhdoanh.maNguoiDung')
-      ->where('cosokinhdoanh.maCSKD',$id)
-      ->get(['cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'dangkygpattp.maCSKD','loaicskd.tenLoaiCSKD',
-       'nguoidung.ho', 'nguoidung.ten']);
-      return response()->json([ 
-      'data' => $coso,
+      ->where('cosokinhdoanh.maCSKD', $id)
+      ->get([
+        'cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'dangkygpattp.maCSKD', 'loaicskd.tenLoaiCSKD',
+        'nguoidung.ho', 'nguoidung.ten'
       ]);
+    return response()->json([
+      'data' => $coso,
+    ]);
   }
 }
 
