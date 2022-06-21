@@ -5,26 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REPORT</title>
+
     <style>
-        body {
+        * {
             font-family: 'Roboto', sans-serif;
             font-size: 14px;
-            color: #333;
+        }
+        .titler {
+            margin: 20px 0 10px 670px;
+            text-transform: uppercase;
         }
     </style>
-    <link rel="stylesheet" href="{{asset('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}">
-    <!-- summernote -->
-    <link rel="stylesheet" href="{{asset('admin/plugins/summernote/summernote-bs4.min.css')}}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{asset('admin/css/adminlte.min.css')}}">
 
-    <!-- Statistics css -->
     <link rel="stylesheet" href="{{asset('admin/css/statistic.css')}}">
-
-    <link rel="shortcut icon" type="image/png" href="https://toigingiuvedep.vn/wp-content/uploads/2021/05/hinh-anh-mat-cuoi-deu-nham-nho.png"/>
 </head>
 <body>
     <!-- begin table -->
+    <h1 class="titler">Báo cáo</h1>
     <div class="row list-form">
         <h3>Danh sách cơ sở</h3>
         <table class="table table-bordered">
