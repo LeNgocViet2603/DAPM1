@@ -11,7 +11,10 @@ class adminController extends Controller
 {
     public function index()
     {
-        return view('admin.pages.dashboard');
+        $user = request()->session()->get('user');
+        if ($user)
+            return view('admin.pages.dashboard');
+        return Redirect::to('/');
     }
     public function loadCategory()
     {
@@ -27,11 +30,14 @@ class adminController extends Controller
         $allPosts = $posts->count();
         $postDrag = DB::table('baidang')
             ->join('nguoidung', 'baidang.maNguoiDang', '=', 'nguoidung.maNguoiDung')
-            ->join('chude', 'baidang.maChuDe', '=', 'chude.maChuDe')->get()->count();
+            ->join('chude', 'baidang.maChuDe', '=', 'chude.maChuDe')->where('baidang.trangThai', '=', '0')->get()->count();
         $postPublished = DB::table('baidang')
             ->join('nguoidung', 'baidang.maNguoiDang', '=', 'nguoidung.maNguoiDung')
-            ->join('chude', 'baidang.maChuDe', '=', 'chude.maChuDe')->get()->count();
-        return view('admin.pages.post', compact('data', 'posts', 'allPosts', 'postDrag', 'postPublished'));
+            ->join('chude', 'baidang.maChuDe', '=', 'chude.maChuDe')->where('baidang.trangThai', '=', '1')->get()->count();
+        $postDeleted = DB::table('baidang')
+            ->join('nguoidung', 'baidang.maNguoiDang', '=', 'nguoidung.maNguoiDung')
+            ->join('chude', 'baidang.maChuDe', '=', 'chude.maChuDe')->where('baidang.trangThai', '=', '2')->get()->count();
+        return view('admin.pages.post', compact('data', 'posts', 'allPosts', 'postDrag', 'postPublished', 'postDeleted'));
     }
 
     public function postDetail($id, Request $request)
@@ -55,16 +61,19 @@ class adminController extends Controller
     }
     public function editPost(Request $request)
     {
-        $image = $request->file('image');
         $post = BaiDang::find($request->id);
-
-        $post->maChuDe = $request->category;
-        $post->tieuDe = $request->title;
-        $post->slug = $request->slug;
-        $post->noiDung  = $request->content;
-        if (isset($image)) {
-            $data['anhBia'] = $image->getClientOriginalName();
-            $image->move('images/post-avatar', $data['anhBia']);
+        if ($request->delete) {
+            $post->trangThai = 2;
+        } else {
+            $image = $request->file('image');
+            $post->maChuDe = $request->category;
+            $post->tieuDe = $request->title;
+            $post->slug = $request->slug;
+            $post->noiDung  = $request->content;
+            if (isset($image)) {
+                $data['anhBia'] = $image->getClientOriginalName();
+                $image->move('images/post-avatar', $data['anhBia']);
+            }
         }
         $post->save();
         return Redirect::to('/admin-page/posts');

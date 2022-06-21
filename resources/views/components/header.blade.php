@@ -22,7 +22,9 @@
             ?>
                 <div class="absolute bottom-0 right-0 bg-green-500/80 space-x-2 flex items-center">
                     <span class="px-3 py-1 text-slate-900 font-bold text-sm"> Xin chào </span>
-                    <button class="pr-3 py-1 text-slate-100 font-bold"> {{$isLogin->ho}} {{$isLogin->ten}}</button>
+                    <button class="pr-3 py-1 text-slate-900 font-bold"> <a href="{{route('logout')}}">
+                            {{$isLogin->ho}} {{$isLogin->ten}}
+                        </a></button>
                 </div>
             <?php
             } else { ?>

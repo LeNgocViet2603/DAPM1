@@ -41,36 +41,14 @@ class StatisticsController extends Controller
     public function statistical(Request $request)
     {
         $countstore = count(CoSoKinhDoanh::all());
+        $filter = array();
         if (!empty($request)) {
-            $store = DB::table('cosokinhdoanh')
-                ->select('cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'cosokinhdoanh.maCSKD',
-                        'loaicskd.tenLoaiCSKD','giayphepattp.maGiayPhepATTP', 'giayphepattp.trangThai')
-                ->join('giayphepattp','cosokinhdoanh.maCSKD','=', 'giayphepattp.maCSKD')
-                ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD' )
-                ->take(10)
-                ->get();
-
-            $service = LoaiCSKD::all();
-            // $status
-            $district = QuanHuyen::all();
-            $ward = PhuongXa::all();
         }
 
         if (!empty($request->service)) {
             $fservice = $request->service;
-            $store = DB::table('cosokinhdoanh')
-                ->select('cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'cosokinhdoanh.maCSKD',
-                        'loaicskd.tenLoaiCSKD','giayphepattp.maGiayPhepATTP', 'giayphepattp.trangThai')
-                ->join('giayphepattp','cosokinhdoanh.maCSKD','=', 'giayphepattp.maCSKD')
-                ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD' )
-                ->where('loaicskd.maLoaiCSKD', $fservice)
-                ->take(10)
-                ->get();
 
-            $service = LoaiCSKD::all();
-            // $status
-            $district = QuanHuyen::all();
-            $ward = PhuongXa::all();
+            $filter[] = ['loaicskd.maLoaiCSKD', $fservice];
         }
 
         if (!empty($request->status)) {
@@ -81,52 +59,43 @@ class StatisticsController extends Controller
                 $fstatus = 2;
             }
 
-            $store = DB::table('cosokinhdoanh')
-                ->select('cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'cosokinhdoanh.maCSKD',
-                        'loaicskd.tenLoaiCSKD','giayphepattp.maGiayPhepATTP', 'giayphepattp.trangThai')
-                ->join('giayphepattp','cosokinhdoanh.maCSKD','=', 'giayphepattp.maCSKD')
-                ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD' )
-                ->where('giayphepattp.trangThai', $fstatus)
-                ->take(10)
-                ->get();
+
+            $filter[] = ['giayphepattp.trangThai', $fstatus];
         }
 
         if (!empty($request->district)) {
             $fdistrict = $request->district;
-            $store = DB::table('cosokinhdoanh')
-                ->select('cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'cosokinhdoanh.maCSKD',
-                        'loaicskd.tenLoaiCSKD','giayphepattp.maGiayPhepATTP', 'giayphepattp.trangThai')
-                ->join('giayphepattp','cosokinhdoanh.maCSKD','=', 'giayphepattp.maCSKD')
-                ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD' )
-                ->join('quanhuyen', 'cosokinhdoanh.maQuanHuyen', '=', 'quanhuyen.maQuanHuyen' )
-                ->where('quanhuyen.maQuanHuyen', $fdistrict)
-                ->take(10)
-                ->get();
 
-            $service = LoaiCSKD::all();
-            // $status
-            $district = QuanHuyen::all();
-            $ward = PhuongXa::all();
+            $filter[] = ['quanhuyen.maQuanHuyen', $fdistrict];
         }
 
         if (!empty($request->ward)) {
             $fward = $request->ward;
-            $store = DB::table('cosokinhdoanh')
-                ->select('cosokinhdoanh.tenCSKD', 'cosokinhdoanh.diaChi', 'cosokinhdoanh.maCSKD',
-                        'loaicskd.tenLoaiCSKD','giayphepattp.maGiayPhepATTP', 'giayphepattp.trangThai')
-                ->join('giayphepattp','cosokinhdoanh.maCSKD','=', 'giayphepattp.maCSKD')
-                ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD' )
-                ->join('phuongxa', 'cosokinhdoanh.maPhuongXa', '=', 'phuongxa.maPhuongXa' )
-                ->where('phuongxa.maPhuongXa', $fward)
-                ->take(10)
-                ->get();
 
-            $service = LoaiCSKD::all();
-            // $status
-            $district = QuanHuyen::all();
-            $ward = PhuongXa::all();
+            $filter[] = ['phuongxa.maPhuongXa', $fward];
         }
 
+
+        $service = LoaiCSKD::all();
+        $district = QuanHuyen::all();
+        $ward = PhuongXa::all();
+        $store = DB::table('cosokinhdoanh')
+            ->select(
+                'cosokinhdoanh.tenCSKD',
+                'cosokinhdoanh.diaChi',
+                'cosokinhdoanh.maCSKD',
+                'loaicskd.tenLoaiCSKD',
+                'giayphepattp.maGiayPhepATTP',
+                'giayphepattp.trangThai'
+            )
+            ->join('giayphepattp', 'cosokinhdoanh.maCSKD', '=', 'giayphepattp.maCSKD')
+            ->join('loaicskd', 'cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD')
+            ->join('phuongxa', 'cosokinhdoanh.maPhuongXa', '=', 'phuongxa.maPhuongXa')
+            ->join('quanhuyen', 'phuongxa.maQuanHuyen', '=', 'quanhuyen.maQuanHuyen')
+            ->where($filter)
+            ->take(10)->get();
+
+        // $store->take(10)->get();
         // $countpie = $store->where('cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD')
         //                     ->groupby('cosokinhdoanh.maLoaiCSKD') ->count();
         // $countpie1 = count($store->where('cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD')
@@ -145,12 +114,15 @@ class StatisticsController extends Controller
             ->where('loaicskd.maLoaiCSKD', '4')->count('cosokinhdoanh.maCSKD');
 
 
-        return ['store' => $store, 'service' => $service, 'district' => $district, 'ward' => $ward,
+        return [
+            'store' => $store, 'service' => $service, 'district' => $district, 'ward' => $ward,
             'countpie1' => $countpie1, 'countpie2' => $countpie2, 'countpie3' => $countpie3, 'countpie4' => $countpie4,
-            'countstore' => $countstore];
+            'countstore' => $countstore
+        ];
     }
 
-    public function downloadPDF(Request $request) {
+    public function downloadPDF(Request $request)
+    {
         $data = $this->statistical($request);
         // $pdf = PDF::loadView('admin.pages.report', compact('data'));
         // return $pdf->stream('report.pdf');
@@ -161,5 +133,12 @@ class StatisticsController extends Controller
     {
         $data = $this->statistical($request);
         return view('admin.pages.statistics', compact('data'));
+    }
+
+    public function getWard()
+    {
+        $districtId = $_POST['districtId'];
+        $wards = DB::table('phuongxa')->where('maQuanHuyen', $districtId)->get();
+        echo $wards;
     }
 }

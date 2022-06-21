@@ -2,11 +2,13 @@
 
   <!-- Sidebar user panel (optional) -->
   <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-    <div class="image">
+    <!-- <div class="image">
       <img src="{{asset('backend/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
-    </div>
+    </div> -->
     <div class="info">
-      <a href="#" class="d-block">Alexander Pierce</a>
+      <a href="#" class="d-block">Xin chào <span style="font-weight: bold;">
+          {{request()->session()->get('user')->ho}} {{request()->session()->get('user')->ten}}
+        </span></a>
     </div>
   </div>
 
@@ -102,27 +104,14 @@
       </li>
 
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{route('statistics.statistics')}}" class="nav-link">
           <i class="nav-icon fas fa-edit"></i>
           <p>
             Thống kê
             <i class="fas fa-angle-left right"></i>
           </p>
         </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="provider-license" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Cấp giấy phép</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="manage-license" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Thu hồi giấy phép</p>
-            </a>
-          </li>
-        </ul>
+
       </li>
     </ul>
   </nav>

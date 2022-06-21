@@ -31,10 +31,9 @@ class LoginController extends Controller
 
                     request()->session()->put('user', $data);
                     if ($quyen == 1) {
-
                         return Redirect::to('/');
                     } else if ($quyen == 3 || $quyen == 4) {
-                        return Redirect::to('/admin');
+                        return Redirect::to('/admin-page');
                     } else {
                         return Redirect::to('/login');
                     }
@@ -51,5 +50,11 @@ class LoginController extends Controller
             request()->session()->put('msg', 'Tài khoản không tồn tại!');
             return Redirect::to('/login');
         }
+    }
+    function signOut()
+    {
+        echo 'cc';
+        request()->session()->forget('user');
+        return Redirect::to('/');
     }
 }

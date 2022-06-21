@@ -19,10 +19,24 @@
                 @foreach($posts as $post)
                 <a class="flex min-h-24 gap-4 hover:bg-gray-400/40 cursor-pointer p-2 shadow-md" href="{{URL::to('/posts/'.$post->slug)}}">
                     <div class="h-28 w-[10rem]">
-                        @if(isset($post->anhBia))
-                        <img src="{{asset('images/'.$post->anhBia)}}" alt="" class="h-full object-cover w-full">
+                        <?php
+                        $src = '';
+                        $index = strpos($post->noiDung, '<img');
+                        if ($index > 0) {
+                            for ($i = $index + 17; $i < $index + 300; $i++) {
+                                if ($post->noiDung[$i] != '"') {
+                                    $src = $src . $post->noiDung[$i];
+                                } else
+                                    break;
+                            }
+                        }
+                        ?>
+                        @if(isset($post->anhBia) && $post->anhBia != null)
+                        <img src="{{asset('images/'.$post->anhBia)}}" alt="" class="w-full h-full object-cover">
+                        @elseif($src != '')
+                        <img src="{{$src}}" alt="" class="w-full h-full object-cover">
                         @else
-                        <img src="{{asset('images/post-avatar/default-post-avatar.jpg')}}" alt="" class="h-full object-cover w-full">
+                        <img src="{{asset('images/post-avatar/default-post-avatar.jpg')}}" alt="" class="w-full h-full object-cover">
                         @endif
                     </div>
                     <div class="flex-1 space-y-2">

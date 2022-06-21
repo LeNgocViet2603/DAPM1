@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
             font-family: 'Roboto', sans-serif;
             font-size: 14px;
         }
+
         .titler {
             margin: 20px 0 10px 670px;
             text-transform: uppercase;
@@ -21,6 +23,7 @@
 
     <link rel="stylesheet" href="{{asset('admin/css/statistic.css')}}">
 </head>
+
 <body>
     <!-- begin table -->
     <h1 class="titler">Báo cáo</h1>
@@ -40,23 +43,24 @@
             <tbody>
                 <?php $stt = 1; ?>
                 @foreach ($data['store'] as $item)
-                    <tr>
+                <tr>
                     <th scope="row">{{$stt++}}</th>
                     <td>{{$item->tenCSKD}}</td>
                     <td>
                         @if($item->trangThai === 1)
-                            {{$item->maGiayPhepATTP}}
+                        {{$item->maGiayPhepATTP}}
                         @else
-                            <button type="button" class="btn btn-link error" id="btn-detail" data-id="{{ $item->maCSKD}}">Vi phạm</button>
+                        <button type="button" class="btn btn-link error" id="btn-detail" data-id="{{ $item->maCSKD}}">Vi phạm</button>
                         @endif
-                        </td>
+                    </td>
                     <td>{{$item->diaChi}}</td>
                     <td>{{$item->tenLoaiCSKD}}</td>
-                    </tr>
+                </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
     <!-- end table -->
 </body>
+
 </html>

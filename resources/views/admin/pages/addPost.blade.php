@@ -9,8 +9,13 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6 d-flex flex-row pl-2">
-          <h1 class="m-0">Thêm bài đăng</h1>
-
+          @if(isset($post))
+          <h1 class="m-0">CHỈNH SỬA BÀI ĐĂNG <?php if ($post->trangThai == 0) echo '<span style="font-size: 14px; color: orange"> Bản Nháp </span>';
+                                              else if ($post->trangThai == 1) echo '<span style="font-size: 14px; color: green"> Đã Công Khai </span>';
+                                              else echo '<span style="font-size: 14px; color: red"> Bản Đã Xoá </span>' ?></h1>
+          @else
+          <h1 class="m-0">THÊM BÀI ĐĂNG</h1>
+          @endif
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
