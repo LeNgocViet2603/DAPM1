@@ -34,7 +34,7 @@
           <i class="nav-icon fas fa-edit"></i>
           <p>
             Tài Khoản
-            <i class="fas fa-angle-left right"></i>
+            <i class="fas right"></i>
           </p>
         </a>
       </li>
@@ -44,7 +44,7 @@
           <i class="nav-icon fas fa-table"></i>
           <p>
             Bài Đăng
-            <i class="fas fa-angle-left right"></i>
+            <i class="fas right"></i>
           </p>
         </a>
         <!--   <ul class="nav nav-treeview">
@@ -69,15 +69,7 @@
         </ul> -->
       </li>
 
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fas fa-edit"></i>
-          <p>
-            Tin Tức - Sự Kiện
-            <i class="fas fa-angle-left right"></i>
-          </p>
-        </a>
-      </li>
+
 
       <li class="nav-item">
         <a class="nav-link">
@@ -108,10 +100,20 @@
           <i class="nav-icon fas fa-edit"></i>
           <p>
             Thống kê
-            <i class="fas fa-angle-left right"></i>
+            <i class="fas right"></i>
           </p>
         </a>
 
+      </li>
+
+      <li class="nav-item">
+        <a href="{{route('index')}}" class="nav-link">
+          <i class="nav-icon fas fa-edit"></i>
+          <p>
+            Trang chủ
+            <i class="fas right"></i>
+          </p>
+        </a>
       </li>
     </ul>
   </nav>
