@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   @yield('title')
-
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="{{asset('admin/css/custom.css')}}">
 
   <link rel="shortcut icon" type="image/png" href="https://luattoanquoc.com/wp-content/uploads/2018/02/fsi636187075666563725.png" />
+  <link rel="shortcut icon" type="image/png" href="https://tokyodelicatering.com.vn/Data/Sites/1/News/41/atvstp-(1).png" />
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -40,7 +41,7 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-      <img class="animation__shake" src="{{asset('admin/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
+      <img class="animation__shake" src="https://tokyodelicatering.com.vn/Data/Sites/1/News/41/atvstp-(1).png" alt="AdminLTELogo" height="60" width="60">
     </div>
 
     <!-- Navbar -->
@@ -51,8 +52,8 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link">
-        <img src="{{asset('admin/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <img src="https://tokyodelicatering.com.vn/Data/Sites/1/News/41/atvstp-(1).png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Ban quản lý ATVSTP</span>
       </a>
 
       <!-- Sidebar -->
@@ -109,6 +110,7 @@
   <script src="{{asset('admin/js/adminlte.js')}}"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="{{asset('admin/js/demo.js')}}"></script>
+  <script src="{{asset('admin/js/app.js')}}"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="{{asset('admin/js/pages/dashboard.js')}}"></script>
   <!-- chart canvas -->
@@ -119,6 +121,9 @@
   <script src="{{asset('admin/plugins/vietnamlocalselector/vietnamlocalselector.js')}}"></script>
 
   <script src="{{asset('admin/ckeditor/ckeditor.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+  <script src="{{asset('backend/js/ajax.js')}}"></script>
   <script>
     CKEDITOR.replace('contentPost', {
       filebrowserBrowseUrl: "{{ route('ckfinder_browser') }}",

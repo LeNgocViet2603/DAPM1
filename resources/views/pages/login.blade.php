@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-<div class="flex p-2 items-center border-b-[1px] border-slate-900">
+<div class="flex p-2 items-center border-b-[1px] border-slate-900 container mx-auto">
     <a class="block text-xs px-3 py-2 font-bold cursor-pointer"> TRANG CHỦ </a>
     <span class="flex items-center w-3 h-3"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
@@ -44,6 +44,9 @@
                     </label>
                 </div>
 
+            </div>
+            <div class="text-center">
+                <a href="{{route('register')}}" class="text-sm ">Bạn chưa có tài khoản? <span class="text-sky-500 underline">Đăng kí</span></a>
             </div>
             <div class="flex items-center gap-2">
                 <input type="checkbox" id="remember" name="remember" class="cursor-pointer">

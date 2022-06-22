@@ -31,7 +31,9 @@ class HomeController extends Controller
 
     public function postDetail(Request $request)
     {
-        $post = BaiDang::find($request->slug);
-        return view('pages.post-detail', compact('post'));
+        $post = DB::table('baidang')->select('*', 'baidang.ngayTao')
+            ->join('nguoidung', 'nguoidung.maNguoiDung', '=', 'baidang.maNguoiDang')->where('slug', '=', $request->slug)->first();
+        $posts = DB::table('baidang')->orderBy('ngayTao', 'desc')->limit(7)->get();
+        return view('pages.post-detail', compact('post', 'posts'));
     }
 }

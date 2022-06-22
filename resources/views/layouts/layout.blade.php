@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="shortcut icon" type="image/png" href="https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/b7/af/1f/b7af1f9f-1ce8-e829-f822-184e053bda4f/source/256x256bb.jpg" />
     @yield('title')
 </head>
 

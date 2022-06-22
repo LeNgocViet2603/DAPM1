@@ -96,7 +96,7 @@
         <div class="flex mb-4 mt-6">
             <h1 class="font-bold text-slate-900 border-b-[3px] border-green-600 "> TỔNG LƯỢC TRUY CẬP </h1>
             <div class="flex-1 border-b-[3px] border-slate-900/40"></div>
-            <p class="text-slate-900 font-bold border-b-[3px] border-slate-900 px-2">1025.5252</p>
+            <p class="text-slate-900 font-bold border-b-[3px] border-slate-900 px-2">89</p>
         </div>
 
     </div>

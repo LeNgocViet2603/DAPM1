@@ -34,6 +34,10 @@ Route::prefix('')->group(function () {
         'as' => 'login',
         'uses' => 'LoginController@authentication'
     ]);
+    Route::get('/logout', [
+        'as' => 'logout',
+        'uses' => 'LoginController@signOut'
+    ]);
     Route::get('/register', [
         'as' => 'register',
         'uses' => 'RegisterController@index'
@@ -50,6 +54,11 @@ Route::prefix('')->group(function () {
     ]);
 
     Route::get('/posts/{slug}', 'HomeController@postDetail');
+
+    Route::post(
+        '/ajax/getWard',
+        'StatisticsController@getWard'
+    );
 });
 // end user routes
 
@@ -81,11 +90,11 @@ Route::prefix('admin-page')->group(function () {
     ]);
 
 
-
     Route::get('/statistics', [
         'as' => 'statistics.statistics',
         'uses' => 'StatisticsController@index'
     ]);
+
 
     Route::get('/statistics/report', [
         'as' => 'statistics.download',

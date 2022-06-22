@@ -22,9 +22,9 @@
                         <span>Lĩnh vực</span>
                         <select name="option" id="myselect">
                            <option value=""> Tất cả </option>
-                           < @foreach ($option as $key=> $item)
-                              <option value="{{$item->maLoaiCSKD}}">{{$item->tenLoaiCSKD}}</option>
-                              @endforeach
+                           @foreach ($option as $key=> $item)
+                           <option value="{{$item->maLoaiCSKD}}">{{$item->tenLoaiCSKD}}</option>
+                           @endforeach
                         </select>
 
                      </div>

@@ -32,11 +32,11 @@
                         <li><a href="#">Tất cả ({{$allPosts}})</a></li>
                         <li><a href="#">Đã xuất bản ({{$postPublished}})</a></li>
                         <li><a href="#">Bản nháp ({{$postDrag}})</a></li>
-                        <li><a href="#">Thùng rác</a></li>
+                        <li><a href="#" style="color: red">Thùng rác ({{$postDeleted}})</a></li>
                     </ul>
                     <form class="search_post">
                         <input type="search" name="" id="">
-                        <button type="submit" class="bg-success text-white"><i class="fa fa-search" aria-hidden="true"></i>Tìm</button>
+                        <button type="submit" class="bg-success text-white"><i class="fa fa-search" aria-hidden="true"></i>Tìm kiếm</button>
                     </form>
                 </div>
             </div>
@@ -87,6 +87,10 @@
                                         <a href="#">Thời gian
                                         </a>
                                     </th>
+                                    <th class="th-lg">
+                                        <a href="#">Hành động
+                                        </a>
+                                    </th>
                                 </tr>
                             </thead>
                             <!--Table head-->
@@ -104,9 +108,13 @@
                                     <td>{{$item->ten}}</td>
                                     <td>{{$item->tenChuDe}}</td>
                                     <td>{{$item->ngayTao}}</td>
-                                    <td>
-                                        <button> <a href="{{URL::to('/admin-page/posts/'.$item->maBaiDang)}}">Chinh sua</a></button>
-                                        <button>Xoá</button>
+                                    <td style="display: flex; gap: 10px">
+                                        <button style="border:none;border-radius: 5px;background:#ffc107; padding: 4px 8px;"> <a href="{{URL::to('/admin-page/posts/'.$item->maBaiDang)}}" style="color:black">Chỉnh sửa</a></button>
+                                        <form method="post" enctype="multipart/form-data" action="{{URL::to('/admin-page/posts/'.$item->maBaiDang)}}">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit" name="delete" value="delete" style="border:none;border-radius: 5px;background:red; padding: 4px 8px;"> Xoá </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach

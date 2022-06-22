@@ -13,7 +13,7 @@ class BaiDang extends Model
     protected $fillable = [
         'maBaiDang', 'maChuDe', 'anhBia', 'tieuDe', 'slug', 'noiDung', 'dinhKem', 'maNguoiDang', 'ngayTao', 'ngayCapNhat', 'trangThai'
     ];
-    protected $primaryKey = 'slug';
+    protected $primaryKey = 'maBaiDang';
     protected $table = 'baidang';
 
     public function nguoidung()
