@@ -28,11 +28,11 @@
   <link rel="stylesheet" href="{{asset('admin/plugins/summernote/summernote-bs4.min.css')}}">
 
   <!-- Statistics css -->
-  <link rel="stylesheet" href="{{asset('css/app.css')}}">
+  <!-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> -->
   <link rel="stylesheet" href="{{asset('admin/css/statistic.css')}}">
   <link rel="stylesheet" href="{{asset('admin/css/custom.css')}}">
 
-  <link rel="shortcut icon" type="image/png" href="https://toigingiuvedep.vn/wp-content/uploads/2021/05/hinh-anh-mat-cuoi-deu-nham-nho.png" />
+  <link rel="shortcut icon" type="image/png" href="https://luattoanquoc.com/wp-content/uploads/2018/02/fsi636187075666563725.png" />
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -134,7 +134,6 @@
       CKEDITOR.instances.contentPost.setData(contentValue.value);
     }
   </script>
-  @include('ckfinder::setup')
 </body>
 
 </html>
