@@ -95,6 +95,19 @@ class StatisticsController extends Controller
             ->where($filter)
             ->take(10)->get();
 
+
+        $history = DB::table('giayphepattp')
+            ->select(
+                'giayphepattp.maGiayPhepATTP',
+                'giayphepattp.maCSKD',
+                'giayphepattp.ngayCap',
+                'giayphepattp.thoiHan',
+                'giayphepattp.ngayThuHoi',
+                'giayphepattp.trangThai'
+            )
+            ->where('giayphepattp.maCSKD', 'CSKD01')
+            ->get();
+
         // $store->take(10)->get();
         // $countpie = $store->where('cosokinhdoanh.maLoaiCSKD', '=', 'loaicskd.maLoaiCSKD')
         //                     ->groupby('cosokinhdoanh.maLoaiCSKD') ->count();
@@ -117,16 +130,19 @@ class StatisticsController extends Controller
         return [
             'store' => $store, 'service' => $service, 'district' => $district, 'ward' => $ward,
             'countpie1' => $countpie1, 'countpie2' => $countpie2, 'countpie3' => $countpie3, 'countpie4' => $countpie4,
-            'countstore' => $countstore
+            'countstore' => $countstore, 'history' => $history
         ];
     }
 
     public function downloadPDF(Request $request)
     {
         $data = $this->statistical($request);
-        // $pdf = PDF::loadView('admin.pages.report', compact('data'));
+        $pdf = PDF::loadView('admin.pages.report', compact('data'));
+        return $pdf->stream('report.pdf');
+        // return view('admin.pages.report', compact('data'));
+        // $pdf = \App::make('dompdf.wrapper');
+        // $pdf->loadHTML($this->statistical($request));
         // return $pdf->stream('report.pdf');
-        return view('admin.pages.report', compact('data'));
     }
 
     public function index(Request $request)

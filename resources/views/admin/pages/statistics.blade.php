@@ -92,7 +92,7 @@
       <!-- begin table -->
       <div class="row list-form">
          <h3>Danh sách cơ sở</h3>
-         <table class="table table-bordered">
+         <table class="table table-bordered emp">
             <thead class="table-header">
                <tr>
                   <th scope="col" class="row-stt">STT</th>
@@ -113,7 +113,7 @@
                      @if($item->trangThai === 1)
                      {{$item->maGiayPhepATTP}}
                      @else
-                     <button type="button" class="btn btn-link error" id="btn-detail" data-id="{{ $item->maCSKD}}">Vi phạm</button>
+                        <button type="button" class="btn btn-link error" id="btn-detail" data-id="{{$item->maCSKD}}" name="viohis">Vi phạm</button>
                      @endif
                   </td>
                   <td>{{$item->diaChi}}</td>
@@ -207,6 +207,7 @@
          );
       </script>
       <!-- end chart -->
+      @include('admin/pages/components/violationHistory')
    </section>
    <!-- /.content -->
 </div>
