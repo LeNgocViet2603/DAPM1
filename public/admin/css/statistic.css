@@ -30,7 +30,7 @@
 }
 
 .table-header {
-  background-color: #007bff;
+  background-color: #00669e;
   color: #fff;
 }
 
@@ -48,6 +48,15 @@
 
 .row-address {
   width: 25%;
+}
+
+/* .emp td,
+.emp th {
+  border: 2px;
+} */
+
+.emp tr:nth-child(even) {
+  background-color: #bfd3ee;
 }
 
 /* .row-areas {
